@@ -1,13 +1,3 @@
-/**
- *
- * Trabajo práctico Nro 2
- * Consulta de ficha de alumnos
- * Integrantes:
- *  - Juan Mendoza
- *  - Alan Vera
- *  - Franco Portillo
- *
- */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,54 +22,91 @@ typedef struct ficha
 void mostrar_estadisticas(Ficha **ficha);
 Ficha *cargar_alumnos(int cantidad_nodos);
 void proceso();
-void generarNroCedula(Ficha **ficha, int);
-void imprimirFicha(Ficha *ficha, int nroOrden);
-void imprimirCabecera();
-int ingresar_cantidad();
+int generar_nro_cedula(Ficha *ficha);
+void imprimir_ficha(Ficha *ficha, int nroOrden);
+void imprimir_cabecera();
 int numero_aleatorio(int min, int max);
+void imprimir_lista(Ficha *alumnos);
+void aguardar_enter();
+int obtener_input(int min, int max);
+int comparar_ci(const void *a, const void *b);
+int comparar_apellido(const void *a, const void *b);
+int comparar_edad(const void *a, const void *b);
+
+int comparar_ci(const void *a, const void *b)
+{
+    Ficha *fa = *(Ficha **)a;
+    Ficha *fb = *(Ficha **)b;
+    return (fa->ci - fb->ci);
+}
+
+int comparar_apellido(const void *a, const void *b)
+{
+    Ficha *fa = *(Ficha **)a;
+    Ficha *fb = *(Ficha **)b;
+    return strcmp(fa->apellidoynombre, fb->apellidoynombre);
+}
+
+int comparar_edad(const void *a, const void *b)
+{
+    Ficha *fa = *(Ficha **)a;
+    Ficha *fb = *(Ficha **)b;
+    return (fa->edad - fb->edad);
+}
+
+int obtener_input(int min, int max)
+{
+    int opcion;
+    do
+    {
+        printf("> ");
+        scanf("%d", &opcion);
+        if (opcion < min || opcion > max)
+        {
+            printf("\nOpcion no valida. Vuelva a ingresar un numero\n");
+        }
+        getchar();
+    } while (opcion < min || opcion > max);
+
+    return opcion;
+}
+
+void aguardar_enter()
+{
+    printf("\n\nPresione [ENTER] para continuar...");
+    while (getchar() != '\n')
+        ;
+}
 
 int numero_aleatorio(int min, int max)
 {
     return rand() % (max - min + 1) + min;
 }
 
-int ingresar_cantidad()
+int generar_nro_cedula(Ficha *alumnos)
 {
-    int n;
-    printf("Ingrese cantidad de alumnos (entre 60 y 70):");
-    do
+    int ci = 2500000 + ((rand() % 1871) * (rand() % 1871) - 641);
+    if (alumnos == NULL)
     {
-        printf("\n> ");
-        scanf("%d", &n);
-        if (n < 60 || n > 70)
-        {
-            printf("\nValor no valido.");
-        }
-    } while (n < 60 || n > 70);
+        return ci;
+    }
 
-    getchar();
-    return n;
-}
-
-/*
-int generarNroCedula(Ficha alumnos[], int a)
-{
-    int ci = 0, i = 0, b = 1;
-
-    ci = 2500000 + ((rand() % 1871) * (rand() % 1871) - 641);
-    for (i = 0; i < a; i++)
+    Ficha *ptr = alumnos;
+    while (ptr != NULL)
     {
-        if (alumnos[i].ci == ci)
+        if (alumnos->ci == ci)
         {
             ci = 2500000 + ((rand() % 1871) * (rand() % 1871) - 641);
-            i = 0;
+            ptr = alumnos;
+            continue;
         }
+        ptr = ptr->siguiente;
     }
+
     return ci;
 }
-*/
 
-void imprimirCabecera()
+void imprimir_cabecera()
 {
     printf("%-10s %-40s %-10s %-20s %-25s\n",
            "Nro orden",
@@ -89,7 +116,7 @@ void imprimirCabecera()
            "Ciudad");
 }
 
-void imprimirFicha(Ficha *ficha, int nroOrden)
+void imprimir_ficha(Ficha *ficha, int nroOrden)
 {
     printf("%-10d %-40s %-10d %-20d %-25s\n",
            nroOrden,
@@ -97,6 +124,91 @@ void imprimirFicha(Ficha *ficha, int nroOrden)
            ficha->edad,
            ficha->ci,
            ficha->ciudad);
+}
+
+void imprimir_lista(Ficha *alumnos)
+{
+    imprimir_cabecera();
+    int i = 0;
+    Ficha *ptr = alumnos;
+    while (ptr != NULL)
+    {
+        i++;
+        imprimir_ficha(ptr, i);
+        ptr = ptr->siguiente;
+    }
+}
+
+void liberar_lista(Ficha *alumnos)
+{
+    Ficha *actual = alumnos;
+    while (actual != NULL)
+    {
+        Ficha *siguiente = actual->siguiente;
+        free(actual);
+        actual = siguiente;
+    }
+}
+
+void ordenar_lista(Ficha **alumnos, int cantidad, int (*comparar)(const void *, const void *))
+{
+    Ficha **arreglo = (Ficha **)malloc(cantidad * sizeof(Ficha *));
+    Ficha *actual = *alumnos;
+    int i;
+    for (i = 0; i < cantidad; i++)
+    {
+        arreglo[i] = actual;
+        actual = actual->siguiente;
+    }
+
+    qsort(arreglo, cantidad, sizeof(Ficha *), comparar);
+
+    for (i = 0; i < cantidad - 1; i++)
+    {
+        arreglo[i]->siguiente = arreglo[i + 1];
+    }
+    arreglo[cantidad - 1]->siguiente = NULL;
+    *alumnos = arreglo[0];
+
+    free(arreglo);
+}
+
+Ficha *copiar_lista(Ficha *alumnos)
+{
+
+    Ficha *cabeza = NULL;
+    Ficha *actual = NULL;
+
+    while (alumnos != NULL)
+    {
+        Ficha *nuevo = (Ficha *)malloc(sizeof(Ficha));
+        *nuevo = *alumnos;
+        nuevo->siguiente = NULL;
+
+        if (cabeza == NULL)
+        {
+            cabeza = nuevo;
+        }
+        else
+        {
+            actual->siguiente = nuevo;
+        }
+        actual = nuevo;
+        alumnos = alumnos->siguiente;
+    }
+
+    return cabeza;
+}
+
+void mostrar_menu()
+{
+    printf("\n============================================\n");
+    printf("INGRESE UNA OPCION:\n");
+    printf("1. Lista original (orden de inscripcion)\n");
+    printf("2. Lista ordenada por numero de cedula\n");
+    printf("3. Lista ordenada por apellido\n");
+    printf("4. Lista ordenada por edad\n");
+    printf("5. Salir\n");
 }
 
 Ficha *cargar_alumnos(int cantidad_nodos)
@@ -140,6 +252,7 @@ Ficha *cargar_alumnos(int cantidad_nodos)
 
         nuevo_nodo->genero = genero;
         nuevo_nodo->edad = numero_aleatorio(20, 25);
+        nuevo_nodo->ci = generar_nro_cedula(tope);
         index = numero_aleatorio(0, 7);
         strcpy(nuevo_nodo->ciudad, ciudad[index]);
         sprintf(nombres, "%s %s", nuevo_nodo->pnombre, nuevo_nodo->snombre);
@@ -164,19 +277,55 @@ Ficha *cargar_alumnos(int cantidad_nodos)
 
 void proceso()
 {
-    printf("Consulta de Alumnos\n");
-    int cantidad_alumnos = ingresar_cantidad();
+    printf(" === Consulta de Alumnos ===\n");
+    printf("Ingrese cantidad de alumnos (entre 60 y 70)\n");
+    int cantidad_alumnos = obtener_input(60, 70);
     Ficha *alumnos = cargar_alumnos(cantidad_alumnos);
+    Ficha *copia_alumnos = NULL;
 
-    imprimirCabecera();
-    int i = 0;
-    while (alumnos->siguiente != NULL)
+    printf("\n");
+    int opcion;
+    do
     {
-        Ficha *temp = alumnos->siguiente;
-        i++;
-        imprimirFicha(alumnos, i);
-        alumnos = temp->siguiente;
-    }
+        mostrar_menu();
+        scanf("%d", &opcion);
+
+        switch (opcion)
+        {
+        case 1:
+            printf("Lista original (orden de inscripcion):\n");
+            imprimir_lista(alumnos);
+            break;
+        case 2:
+            printf("Lista ordenada por numero de cedula:\n");
+            copia_alumnos = copiar_lista(alumnos);
+            ordenar_lista(&copia_alumnos, cantidad_alumnos, comparar_ci);
+            imprimir_lista(copia_alumnos);
+            liberar_lista(copia_alumnos);
+            break;
+        case 3:
+            printf("Lista ordenada por apellido:\n");
+            copia_alumnos = copiar_lista(alumnos);
+            ordenar_lista(&copia_alumnos, cantidad_alumnos, comparar_apellido);
+            imprimir_lista(copia_alumnos);
+            liberar_lista(copia_alumnos);
+            break;
+        case 4:
+            printf("Lista ordenada por edad:\n");
+            copia_alumnos = copiar_lista(alumnos);
+            ordenar_lista(&copia_alumnos, cantidad_alumnos, comparar_edad);
+            imprimir_lista(copia_alumnos);
+            liberar_lista(copia_alumnos);
+            break;
+        case 5:
+            printf("Saliendo...\n");
+            break;
+        default:
+            printf("Opcion no valida, intente de nuevo.\n");
+        }
+    } while (opcion != 5);
+
+    liberar_lista(alumnos);
 }
 
 int main()
