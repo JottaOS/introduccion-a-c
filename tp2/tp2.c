@@ -1,3 +1,11 @@
+/**
+ * Trabajo practico Nro 2
+ * Consulta de alumnos
+ * Integrantes:
+ *  - Juan Mendoza
+ *  - Alan Vera
+ *  - Franco Portillo
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
