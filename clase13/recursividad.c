@@ -28,30 +28,19 @@ int ingresar()
     return n;
 }
 
-void escribir_en_archivo(char *cadena)
-{
-    FILE *fptr;
-
-    fptr = fopen("archivo.txt", "a");
-    fprintf(fptr, "%s", cadena);
-    fclose(fptr);
-}
-
 void proceso()
 {
     printf("Secuencia de fibonacci\n");
     int n = ingresar();
     int i;
-    escribir_en_archivo("\n============\n");
     for (i = 0; i < n; i++)
     {
         int resultado = fib(i);
         char *cadena = (char *)malloc(10 * sizeof(char));
         sprintf(cadena, "%d ", resultado);
         printf("%d ", resultado);
-        escribir_en_archivo(cadena);
     }
-    printf("\nResultado en archivo\n");
+    printf("\nFin\n");
 }
 
 int main()
