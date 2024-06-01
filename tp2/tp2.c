@@ -27,7 +27,7 @@ typedef struct ficha
     struct ficha *siguiente;
 } Ficha;
 
-void mostrar_estadisticas(Ficha **ficha);
+void mostrar_estadisticas(Ficha *ficha);
 Ficha *cargar_alumnos(int cantidad_nodos);
 void proceso();
 int generar_nro_cedula(Ficha *ficha);
@@ -208,10 +208,11 @@ Ficha *copiar_lista(Ficha *alumnos)
     return cabeza;
 }
 
-void mostrar_menu()
+void mostrar_menu(Ficha *alumnos)
 {
     printf("\n============================================\n");
-    printf("INGRESE UNA OPCION:\n");
+    mostrar_estadisticas(alumnos);
+    printf("\nINGRESE UNA OPCION:\n");
     printf("1. Lista original (orden de inscripcion)\n");
     printf("2. Lista ordenada por numero de cedula\n");
     printf("3. Lista ordenada por apellido\n");
@@ -283,6 +284,79 @@ Ficha *cargar_alumnos(int cantidad_nodos)
     return tope;
 }
 
+int misma_edad(Ficha *a, Ficha *b)
+{
+    return a->edad == b->edad;
+}
+
+int mismo_primer_apellido(Ficha *a, Ficha *b)
+{
+    return strcmp(a->papellido, b->papellido) == 0;
+}
+
+int mismo_apellido(Ficha *a, Ficha *b)
+{
+    return strcmp(a->papellido, b->papellido) == 0 && strcmp(a->sapellido, b->sapellido) == 0;
+}
+
+int misma_ciudad(Ficha *a, Ficha *b)
+{
+    return strcmp(a->ciudad, b->ciudad) == 0;
+}
+
+int mismo_nombre(Ficha *a, Ficha *b)
+{
+    return strcmp(a->pnombre, b->pnombre) == 0 || strcmp(a->snombre, b->snombre) == 0;
+}
+
+int contar_por_criterio(Ficha *alumnos, int (*criterio)(Ficha *, Ficha *))
+{
+    Ficha *ptr1 = alumnos;
+    int contador = 0;
+    while (ptr1 != NULL)
+    {
+        Ficha *ptr2 = alumnos;
+        while (ptr2 != NULL)
+        {
+            if (ptr1 != ptr2 && criterio(ptr1, ptr2))
+            {
+                contador++;
+                break;
+            }
+            ptr2 = ptr2->siguiente;
+        }
+        ptr1 = ptr1->siguiente;
+    }
+    return contador;
+}
+
+void mostrar_estadisticas(Ficha *alumnos)
+{
+    printf("\nEstadisticas:\n");
+    printf("Alumnos con misma edad: %d\n", contar_por_criterio(alumnos, misma_edad));
+    printf("Alumnos que son primos: %d\n", contar_por_criterio(alumnos, mismo_primer_apellido));
+    printf("Alumnos que son hermanos: %d\n", contar_por_criterio(alumnos, mismo_apellido));
+    printf("Alumnos que son de la misma ciudad: %d\n", contar_por_criterio(alumnos, misma_ciudad));
+    printf("Alumnos que tienen el mismo nombre: %d\n", contar_por_criterio(alumnos, mismo_nombre));
+
+    int varones = 0, mujeres = 0;
+    Ficha *ptr = alumnos;
+    while (ptr != NULL)
+    {
+        if (ptr->genero == 'M')
+        {
+            varones++;
+        }
+        else
+        {
+            mujeres++;
+        }
+        ptr = ptr->siguiente;
+    }
+    printf("Alumnos varones: %d\n", varones);
+    printf("Alumnas mujeres: %d\n", mujeres);
+}
+
 void proceso()
 {
     printf(" === Consulta de Alumnos ===\n");
@@ -295,7 +369,7 @@ void proceso()
     int opcion;
     do
     {
-        mostrar_menu();
+        mostrar_menu(alumnos);
         scanf("%d", &opcion);
 
         switch (opcion)
