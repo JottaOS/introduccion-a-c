@@ -332,15 +332,77 @@ int contar_por_criterio(Ficha *alumnos, int (*criterio)(Ficha *, Ficha *))
 
 void mostrar_estadisticas(Ficha *alumnos)
 {
+    int cantidad_por_edad[6] = {0};
+    int cantidad_por_ciudad[8] = {0};
     printf("\nEstadisticas:\n");
-    printf("Alumnos con misma edad: %d\n", contar_por_criterio(alumnos, misma_edad));
-    printf("Alumnos que son primos: %d\n", contar_por_criterio(alumnos, mismo_primer_apellido));
-    printf("Alumnos que son hermanos: %d\n", contar_por_criterio(alumnos, mismo_apellido));
-    printf("Alumnos que son de la misma ciudad: %d\n", contar_por_criterio(alumnos, misma_ciudad));
-    printf("Alumnos que tienen el mismo nombre: %d\n", contar_por_criterio(alumnos, mismo_nombre));
+    printf("1) Alumnos que tienen la misma edad:\n");
+
+    Ficha *ptr = alumnos;
+    while (ptr != NULL)
+    {
+        cantidad_por_edad[25 - ptr->edad]++;
+        ptr = ptr->siguiente;
+    }
+
+    for (int edad = 25; edad >= 20; edad--)
+    {
+        printf("	%d alumnos tienen %d anhos\n", cantidad_por_edad[25 - edad], edad);
+    }
+
+    printf("2) Alumnos que son primos: %d\n", contar_por_criterio(alumnos, mismo_primer_apellido));
+    printf("3) Alumnos que son hermanos: %d\n", contar_por_criterio(alumnos, mismo_apellido));
+    printf("4) Alumnos que son de la misma ciudad:\n");
+
+    ptr = alumnos;
+    while (ptr != NULL)
+    {
+        if (strcmp(ptr->ciudad, "ASUNCION") == 0)
+        {
+            cantidad_por_ciudad[0]++;
+        }
+        else if (strcmp(ptr->ciudad, "LAMBARE") == 0)
+        {
+            cantidad_por_ciudad[1]++;
+        }
+        else if (strcmp(ptr->ciudad, "CAACUPE") == 0)
+        {
+            cantidad_por_ciudad[2]++;
+        }
+        else if (strcmp(ptr->ciudad, "ITAUGUA") == 0)
+        {
+            cantidad_por_ciudad[3]++;
+        }
+        else if (strcmp(ptr->ciudad, "MARIANO ROQUE ALONSO") == 0)
+        {
+            cantidad_por_ciudad[4]++;
+        }
+        else if (strcmp(ptr->ciudad, "CAPIATA") == 0)
+        {
+            cantidad_por_ciudad[5]++;
+        }
+        else if (strcmp(ptr->ciudad, "LUQUE") == 0)
+        {
+            cantidad_por_ciudad[6]++;
+        }
+        else if (strcmp(ptr->ciudad, "SAN LORENZO") == 0)
+        {
+            cantidad_por_ciudad[7]++;
+        }
+        ptr = ptr->siguiente;
+    }
+
+    printf("	%d alumnos son de ASUNCION\n", cantidad_por_ciudad[0]);
+    printf("	%d alumnos son de LAMBARE\n", cantidad_por_ciudad[1]);
+    printf("	%d alumnos son de CAACUPE\n", cantidad_por_ciudad[2]);
+    printf("	%d alumnos son de ITAUGUA\n", cantidad_por_ciudad[3]);
+    printf("	%d alumnos son de MARIANO ROQUE ALONSO\n", cantidad_por_ciudad[4]);
+    printf("	%d alumnos son de CAPIATA\n", cantidad_por_ciudad[5]);
+    printf("	%d alumnos son de LUQUE\n", cantidad_por_ciudad[6]);
+    printf("	%d alumnos son de SAN LORENZO\n", cantidad_por_ciudad[7]);
+    printf("5) Alumnos que tienen el mismo nombre: %d\n", contar_por_criterio(alumnos, mismo_nombre));
 
     int varones = 0, mujeres = 0;
-    Ficha *ptr = alumnos;
+    ptr = alumnos;
     while (ptr != NULL)
     {
         if (ptr->genero == 'M')
@@ -353,8 +415,7 @@ void mostrar_estadisticas(Ficha *alumnos)
         }
         ptr = ptr->siguiente;
     }
-    printf("Alumnos varones: %d\n", varones);
-    printf("Alumnas mujeres: %d\n", mujeres);
+    printf("6) Alumnos varones: %d - Alumnas mujeres: %d\n", varones, mujeres);
 }
 
 void proceso()
@@ -379,21 +440,27 @@ void proceso()
             imprimir_lista(alumnos);
             break;
         case 2:
-            printf("Lista ordenada por numero de cedula:\n");
+            printf("Lista original (orden de inscripcion):\n");
+            imprimir_lista(alumnos);
+            printf("\nLista ordenada por numero de cedula:\n");
             copia_alumnos = copiar_lista(alumnos);
             ordenar_lista(&copia_alumnos, cantidad_alumnos, comparar_ci);
             imprimir_lista(copia_alumnos);
             liberar_lista(copia_alumnos);
             break;
         case 3:
-            printf("Lista ordenada por apellido:\n");
+            printf("Lista original (orden de inscripcion):\n");
+            imprimir_lista(alumnos);
+            printf("\nLista ordenada por apellido:\n");
             copia_alumnos = copiar_lista(alumnos);
             ordenar_lista(&copia_alumnos, cantidad_alumnos, comparar_apellido);
             imprimir_lista(copia_alumnos);
             liberar_lista(copia_alumnos);
             break;
         case 4:
-            printf("Lista ordenada por edad:\n");
+            printf("Lista original (orden de inscripcion):\n");
+            imprimir_lista(alumnos);
+            printf("\nLista ordenada por edad:\n");
             copia_alumnos = copiar_lista(alumnos);
             ordenar_lista(&copia_alumnos, cantidad_alumnos, comparar_edad);
             imprimir_lista(copia_alumnos);
