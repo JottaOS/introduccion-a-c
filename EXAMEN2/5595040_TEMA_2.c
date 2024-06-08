@@ -15,7 +15,7 @@ int numero_aleatorio(int min, int max)
     return rand() % (max - min + 1) + min;
 }
 
-void inicializarMatriz(int **matriz, int n, int m)
+void cargarMatriz(int **matriz, int n, int m)
 {
     int i, j;
     for (i = 0; i < n; i++)
@@ -61,7 +61,7 @@ void proceso()
         matriz[i] = (int *)malloc(m * sizeof(int));
     }
 
-    inicializarMatriz(matriz, n, m);
+    cargarMatriz(matriz, n, m);
     imprimirMatriz(matriz, n, m);
 }
 
