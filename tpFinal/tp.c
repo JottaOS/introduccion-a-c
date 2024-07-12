@@ -316,45 +316,113 @@ void capturar(char string[])
     printf("Validacion: %d\n", validar_ingreso(string));
 }
 
+bool validar_movimiento(Carta origen, Carta destino, bool es_pila) {
+    if (es_pila) {
+        // Validación para pilas (P, R, S, T)
+        if (origen.valor == 1) {
+            // As se puede colocar en una pila vacía
+            return destino.valor == -1;  // Pila vacía
+        } else if (destino.valor == -1 || destino.valor == origen.valor - 1) {
+            // La carta debe ser 1 mayor que la carta superior en la pila
+            return origen.valor == destino.valor + 1;
+        }
+        return false;
+    } else {
+        // Validación para movimiento entre columnas
+        return origen.color != destino.color && origen.valor == destino.valor + 1;
+    }
+}
 
-/*int main()
- {
-     srand(time(NULL));
+void realizar_movimiento(char string[], Carta tablero[7][19], Carta mazo_ordenado[4][13], Carta mazo_desordenado[52])
+{
+    int pos, po, pd;
+    char origen, destino;
+    pos = encuentra_guion(string);
 
-     Carta Mazo[52];
-     Carta Mazo_desordenado[52];
-     Carta tablero[7][7];
+    switch (pos)
+    {
+    case 0:
+        // Movimiento del mazo desordenado al tablero
+        sscanf(string, "%c-%c%d", &origen, &destino, &pd);
+        if (origen == 'M' && destino >= 'A' && destino <= 'G') {
+            int columna = destino - 'A';
+            for (int i = 0; i < 52; i++) {
+                if (mazo_desordenado[i].estado == 0) {
+                    tablero[columna][pd - 1] = mazo_desordenado[i];
+                    mazo_desordenado[i].estado = 1;
+                    break;
+                }
+            }
+        }
+        break;
+    case 1:
+        // Movimiento del mazo ordenado a las pilas P, T, R, S
+        sscanf(string, "%c-%c%d", &origen, &destino, &pd);
+        if (origen >= 'A' && origen <= 'G' && destino >= 'P' && destino <= 'S') {
+            int columna = origen - 'A';
+            int pila = destino - 'P';
+            if (tablero[columna][pd - 1].estado == 1) {
+                mazo_ordenado[pila][pd - 1] = tablero[columna][pd - 1];
+                tablero[columna][pd - 1].estado = 0;
+            }
+        }
+        break;
+    case 2:
+        // Movimiento entre columnas del tablero
+        sscanf(string, "%c%d-%c%d", &origen, &po, &destino, &pd);
+        if (origen >= 'A' && origen <= 'G' && destino >= 'A' && destino <= 'G') {
+            int col_origen = origen - 'A';
+            int col_destino = destino - 'A';
+            if (validar_movimiento_columna(tablero, col_origen, po - 1, col_destino, pd - 1)) {
+                intercambiar(&tablero[col_origen][po - 1], &tablero[col_destino][pd - 1]);
+            }
+        }
+        break;
+    case 3:
+        // Movimiento entre una columna y una pila (P, T, R, S)
+        sscanf(string, "%c%d-%c", &origen, &po, &destino);
+        if (origen >= 'A' && origen <= 'G' && destino >= 'P' && destino <= 'S') {
+            int columna = origen - 'A';
+            int pila = destino - 'P';
+            if (validar_movimiento_pila(tablero, columna, po - 1, pila)) {
+                mazo_ordenado[pila][0] = tablero[columna][po - 1];
+                tablero[columna][po - 1].estado = 0;
+            }
+        }
+        break;
+    }
+}
 
-     cargar_mazo(Mazo);
-     mezclar(Mazo, Mazo_desordenado);
+bool validar_movimiento_columna(Carta tablero[7][19], int col_origen, int fila_origen, int col_destino, int fila_destino) {
+    if (tablero[col_origen][fila_origen].valor == -1 || tablero[col_destino][fila_destino].valor == -1) {
+        return false; // Si alguna de las cartas no es válida, no se puede mover
+    }
 
-     cargar_tablero(Mazo_desordenado, tablero);
-     imprimir_tablero(tablero);
+    return (tablero[col_origen][fila_origen].valor == tablero[col_destino][fila_destino].valor + 1 &&
+            tablero[col_origen][fila_origen].color != tablero[col_destino][fila_destino].color);
+}
 
-     char string[8];
-     int i;
+bool validar_movimiento_pila(Carta tablero[7][19], int columna, int fila, int pila) {
+    if (tablero[columna][fila].valor == -1) {
+        return false; // No hay carta para mover
+    }
 
-    for (i = 0; i < 4; i++)
-     {
-         capturar(string);
-         imprimir_accion(string);
-         printf("\n");
-     }
-   return 0;
- }*/
- 
+    return (mazo_ordenado[pila][0].valor == tablero[columna][fila].valor + 1 || mzo_ordenado[pila][0].valor == 0); // Requiere que la pila esté vacía o que sea 1 mayor
+}
+
 int main()
 {
     srand(time(NULL));
 
     Carta Mazo[52];
-    Carta Mazo_desordenado[52];
+    Carta mazo_desordenado[52]; // Declarar mazo_desordenado aquí
     Carta tablero[7][19];
+    Carta mazo_ordenado[4][13] = {{{0}}}; // Inicializar el mazo ordenado
 
     cargar_mazo(Mazo);
-    mezclar(Mazo, Mazo_desordenado);
+    mezclar(Mazo, mazo_desordenado); // Esta función mezcla en el mazo_desordenado
 
-    cargar_tablero(Mazo_desordenado, tablero);
+    cargar_tablero(mazo_desordenado, tablero);
     imprimir_tablero(tablero);
 
     char string[8];
@@ -364,22 +432,9 @@ int main()
     {
         capturar(string);
         imprimir_accion(string);
+        realizar_movimiento(string, tablero, mazo_ordenado, mazo_desordenado); // Llama a la función para realizar el movimiento
+        imprimir_tablero(tablero); // Mostrar el estado del tablero después del movimiento
         printf("\n");
     }
     return 0;
 }
-
-/*int main()
-{
-    char string[8];
-    int i;
-
-    // printf("%d\n", strlen("A19-G19"));
-    while (true)
-    {
-        capturar(string);
-        // imprimir_accion(string);
-        printf("\n");
-    }
-    return 0;
-}*/
