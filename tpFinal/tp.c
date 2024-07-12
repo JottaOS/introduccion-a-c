@@ -157,7 +157,9 @@ int encuentra_guion(char string[])
     int pos = 0, len;
     len = strlen(string);
     while ((string[pos] != '-') && (len > 1))
+    {
         pos++;
+    }
 
     return pos;
 }
@@ -219,21 +221,19 @@ void imprimir_accion(char string[])
     }
 }
 
-bool es_valido(char *movimiento)
+bool validar_ingreso(char *movimiento)
 {
-    // Verifica longitud mínima (caso "M")
-    if (strlen(movimiento) == 1)
+    int len = strlen(movimiento);
+    if (len == 1)
     {
         return movimiento[0] == 'M';
-    }
+    };
 
-    // Verifica longitud válida para los otros casos
-    if (strlen(movimiento) < 3 || strlen(movimiento) > 5)
+    if (len < 3 || len > 7)
     {
         return false;
     }
 
-    // Verifica primer carácter (columna o mazo)
     if (!((movimiento[0] >= 'A' && movimiento[0] <= 'G') ||
           movimiento[0] == 'M' ||
           movimiento[0] == 'P' ||
@@ -244,31 +244,56 @@ bool es_valido(char *movimiento)
         return false;
     }
 
-    // Verifica el guión
-    if (movimiento[1] != '-')
+    char *guion = strchr(movimiento, '-');
+    if (guion == NULL)
     {
         return false;
     }
 
-    // Verifica la columna de destino y fila
-    if (movimiento[2] >= 'A' && movimiento[2] <= 'G')
+    int pos_guion = guion - movimiento;
+    if (movimiento[0] >= 'A' && movimiento[0] <= 'G')
     {
-        // Verifica la fila (puede ser 1 o 2 dígitos)
-        int fila = atoi(&movimiento[3]);
+        if (pos_guion == 1 || !isdigit(movimiento[1]))
+        {
+            return false;
+        }
+        int fila_origen = atoi(movimiento + 1);
+        if (fila_origen < 1 || fila_origen > 19)
+        {
+            return false;
+        }
+    }
+    else if (movimiento[0] == 'M' || movimiento[0] == 'P' || movimiento[0] == 'T' || movimiento[0] == 'R' || movimiento[0] == 'S')
+    {
+        if (pos_guion != 1)
+        {
+            return false;
+        }
+    }
+
+    char destino = *(guion + 1);
+    if (!((destino >= 'A' && destino <= 'G') ||
+          destino == 'P' || destino == 'T' ||
+          destino == 'R' || destino == 'S'))
+    {
+        return false;
+    }
+
+    char *fila_str = guion + 2;
+    int fila = atoi(fila_str);
+    if (destino >= 'A' && destino <= 'G')
+    {
         if (fila < 1 || fila > 19)
         {
             return false;
         }
     }
-    else if (movimiento[2] == 'P' || movimiento[2] == 'T' ||
-             movimiento[2] == 'R' || movimiento[2] == 'S')
-    {
-        // No se necesita verificar la fila para P, T, R, S
-        return true;
-    }
     else
     {
-        return false;
+        if (fila != 0)
+        {
+            return false;
+        }
     }
 
     return true;
@@ -279,7 +304,7 @@ void capturar(char string[])
     printf("posicion: ");
     scanf("%s", string);
     getchar();
-    printf("%d\n", es_valido(string));
+    printf("Validacion: %d\n", validar_ingreso(string));
 }
 
 int main()
@@ -287,10 +312,11 @@ int main()
     char string[8];
     int i;
 
+    // printf("%d\n", strlen("A19-G19"));
     while (true)
     {
         capturar(string);
-        imprimir_accion(string);
+        // imprimir_accion(string);
         printf("\n");
     }
     return 0;
