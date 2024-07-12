@@ -1,8 +1,3 @@
-/**
- * Ejercicio 1
- * Genere un vector con todas las cartas desordenadas
- */
-
 #define GRNB "\e[42m"
 #define RED "\e[0;31m"
 #define BLK "\e[0;30m"
@@ -106,47 +101,61 @@ void mezclar(Carta Mazo[], Carta Mazo_desordenado[])
 
 void imprimir_carta(Carta carta)
 {
-    char *color = (char *)malloc(sizeof(char) * 7);
-    if (carta.color == 0)
+    if (carta.estado == 0)
     {
-        color = RED;
+        printf("#\t");
     }
     else
     {
-        color = BLK;
+        char *color = carta.color == 0 ? RED : BLK;
+        printf("%s%s%s\t", color, carta.impresion, COLOR_RESET);
     }
-
-    printf("%s%s%s", color, carta.impresion, COLOR_RESET);
 }
 
-void cargar_tablero(Carta Mazo_desordenado[52], Carta tablero[7][7])
+void cargar_tablero(Carta Mazo_desordenado[52], Carta tablero[7][19])
 {
     int i, j, c = 0;
     for (i = 0; i < 7; i++)
     {
-        for (j = 0; j < 7; j++)
+        for (j = 0; j <= i; j++) // cambiar la condición para seguir la regla del tablero
         {
-            if (i <= j)
-            {
-                tablero[i][j] = Mazo_desordenado[c];
-                c++;
-            }
+            tablero[i][j] = Mazo_desordenado[c];
+            tablero[i][j].estado = (j == i) ? 1 : 0; // Última carta visible, el resto ocultas
+            c++;
+        }
+        for (j = i + 1; j < 19; j++) // llenar el resto con cartas no válidas
+        {
+            tablero[i][j].valor = -1; // Indicar que no hay carta
         }
     }
 }
 
-void imprimir_tablero(Carta tablero[7][7])
+void imprimir_tablero(Carta tablero[7][19])
 {
     int i, j;
-    for (i = 0; i < 7; i++)
+
+    // Imprimir espacios para el mazo desordenado y las 4 pilas de mazos ordenados
+    printf("   M\t\tP\tT\tR\tS\n");
+
+    // Imprimir etiquetas de las columnas
+    printf("   A\tB\tC\tD\tE\tF\tG\n");
+
+    // Imprimir las filas del tablero
+    for (j = 0; j < 19; j++)
     {
-        for (j = 0; j < 7; j++)
+        printf("%2d ", j + 1); // Números de fila
+
+        // Imprimir cada columna
+        for (i = 0; i < 7; i++)
         {
-            if (i <= j)
+            if (tablero[i][j].valor != -1)
             {
-                imprimir_carta(tablero[i][j]);
+                imprimir_carta(tablero[i][j]); // Imprimir carta si está presente
             }
-            printf("\t");
+            else
+            {
+                printf("\t"); // Espacio si no hay carta
+            }
         }
         printf("\n");
     }
@@ -307,7 +316,60 @@ void capturar(char string[])
     printf("Validacion: %d\n", validar_ingreso(string));
 }
 
+
+/*int main()
+ {
+     srand(time(NULL));
+
+     Carta Mazo[52];
+     Carta Mazo_desordenado[52];
+     Carta tablero[7][7];
+
+     cargar_mazo(Mazo);
+     mezclar(Mazo, Mazo_desordenado);
+
+     cargar_tablero(Mazo_desordenado, tablero);
+     imprimir_tablero(tablero);
+
+     char string[8];
+     int i;
+
+    for (i = 0; i < 4; i++)
+     {
+         capturar(string);
+         imprimir_accion(string);
+         printf("\n");
+     }
+   return 0;
+ }*/
+ 
 int main()
+{
+    srand(time(NULL));
+
+    Carta Mazo[52];
+    Carta Mazo_desordenado[52];
+    Carta tablero[7][19];
+
+    cargar_mazo(Mazo);
+    mezclar(Mazo, Mazo_desordenado);
+
+    cargar_tablero(Mazo_desordenado, tablero);
+    imprimir_tablero(tablero);
+
+    char string[8];
+    int i;
+
+    for (i = 0; i < 4; i++)
+    {
+        capturar(string);
+        imprimir_accion(string);
+        printf("\n");
+    }
+    return 0;
+}
+
+/*int main()
 {
     char string[8];
     int i;
@@ -320,30 +382,4 @@ int main()
         printf("\n");
     }
     return 0;
-}
-
-// int main()
-// {
-//     srand(time(NULL));
-
-//     Carta Mazo[52];
-//     Carta Mazo_desordenado[52];
-//     Carta tablero[7][7];
-
-//     cargar_mazo(Mazo);
-//     mezclar(Mazo, Mazo_desordenado);
-
-//     cargar_tablero(Mazo_desordenado, tablero);
-//     imprimir_tablero(tablero);
-
-//     char string[8];
-//     int i;
-
-//     for (i = 0; i < 4; i++)
-//     {
-//         capturar(string);
-//         imprimir_accion(string);
-//         printf("\n");
-//     }
-//     return 0;
-// }
+}*/
