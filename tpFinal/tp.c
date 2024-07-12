@@ -18,44 +18,58 @@ typedef struct CARTA
     char impresion[4];
 } Carta;
 
-typedef struct {
+typedef struct
+{
     Carta cartas[13];
     int top;
 } MazoOrdenado;
 
-void inicializar_mazo_ordenado(MazoOrdenado *mazo) {
+void inicializar_mazo_ordenado(MazoOrdenado *mazo)
+{
     mazo->top = -1;
-}void mover_mazo_a_tablero(Carta mazo_desordenado[], int *indice_mazo, Carta tablero[7][19], int columna, int fila) {
-    if (*indice_mazo < 52) {
+}
+
+void mover_mazo_a_tablero(Carta mazo_desordenado[], int *indice_mazo, Carta tablero[7][19], int columna, int fila)
+{
+    if (*indice_mazo < 52)
+    {
         tablero[columna][fila] = mazo_desordenado[*indice_mazo];
         tablero[columna][fila].estado = 1; // Hacer visible la carta
         (*indice_mazo)++;
     }
 }
 
-void mover_mazo_a_ordenado(Carta mazo_desordenado[], int *indice_mazo, MazoOrdenado *mazo_ordenado) {
-    if (*indice_mazo < 52) {
+void mover_mazo_a_ordenado(Carta mazo_desordenado[], int *indice_mazo, MazoOrdenado *mazo_ordenado)
+{
+    if (*indice_mazo < 52)
+    {
         mazo_ordenado->cartas[++(mazo_ordenado->top)] = mazo_desordenado[*indice_mazo];
         (*indice_mazo)++;
     }
 }
 
-void mover_tablero_a_ordenado(Carta tablero[7][19], int col, int fila, MazoOrdenado *mazo_ordenado) {
-    if (tablero[col][fila].valor != -1) {
+void mover_tablero_a_ordenado(Carta tablero[7][19], int col, int fila, MazoOrdenado *mazo_ordenado)
+{
+    if (tablero[col][fila].valor != -1)
+    {
         mazo_ordenado->cartas[++(mazo_ordenado->top)] = tablero[col][fila];
         tablero[col][fila].valor = -1; // Marcar la carta como removida
     }
 }
 
-void mover_tablero_a_tablero(Carta tablero[7][19], int col_origen, int fila_origen, int col_destino, int fila_destino) {
-    if (tablero[col_origen][fila_origen].valor != -1) {
+void mover_tablero_a_tablero(Carta tablero[7][19], int col_origen, int fila_origen, int col_destino, int fila_destino)
+{
+    if (tablero[col_origen][fila_origen].valor != -1)
+    {
         tablero[col_destino][fila_destino] = tablero[col_origen][fila_origen];
         tablero[col_origen][fila_origen].valor = -1; // Marcar la carta como removida
     }
 }
 
-void mover_ordenado_a_tablero(MazoOrdenado *mazo_ordenado, Carta tablero[7][19], int col, int fila) {
-    if (mazo_ordenado->top >= 0) {
+void mover_ordenado_a_tablero(MazoOrdenado *mazo_ordenado, Carta tablero[7][19], int col, int fila)
+{
+    if (mazo_ordenado->top >= 0)
+    {
         tablero[col][fila] = mazo_ordenado->cartas[(mazo_ordenado->top)--];
     }
 }
@@ -357,8 +371,9 @@ void capturar(char string[])
     getchar();
     printf("Validacion: %d\n", validar_ingreso(string));
 }
- 
-int main() {
+
+int main()
+{
     srand(time(NULL));
 
     Carta Mazo[52];
@@ -370,8 +385,9 @@ int main() {
     mezclar(Mazo, Mazo_desordenado);
 
     cargar_tablero(Mazo_desordenado, tablero);
-
-    for (int i = 0; i < 4; i++) {
+    int i;
+    for (i = 0; i < 4; i++)
+    {
         inicializar_mazo_ordenado(&mazo_ordenado[i]);
     }
 
@@ -379,37 +395,51 @@ int main() {
 
     char string[8];
     int indice_mazo = 0;
-    int i;
 
-    for (i = 0; i < 4; i++) {
+    for (i = 0; i < 4; i++)
+    {
         capturar(string);
 
-        if (strcmp(string, "M") == 0) {
+        if (strcmp(string, "M") == 0)
+        {
             // Mueve la siguiente carta del mazo desordenado al mazo
             indice_mazo++;
-        } else if (string[0] == 'M' && string[1] == '-') {
+        }
+        else if (string[0] == 'M' && string[1] == '-')
+        {
             // Movimiento de mazo desordenado a mazo ordenado o tablero
-            if (string[2] == 'P' || string[2] == 'T' || string[2] == 'R' || string[2] == 'S') {
+            if (string[2] == 'P' || string[2] == 'T' || string[2] == 'R' || string[2] == 'S')
+            {
                 mover_mazo_a_ordenado(Mazo_desordenado, &indice_mazo, &mazo_ordenado[string[2] - 'P']);
-            } else {
+            }
+            else
+            {
                 int col = string[2] - 'A';
                 int fila = atoi(&string[3]) - 1;
                 mover_mazo_a_tablero(Mazo_desordenado, &indice_mazo, tablero, col, fila);
             }
-        } else if (string[0] >= 'A' && string[0] <= 'G') {
+        }
+        else if (string[0] >= 'A' && string[0] <= 'G')
+        {
             // Movimiento dentro del tablero o del tablero a mazo ordenado
             int col_origen = string[0] - 'A';
             int fila_origen = atoi(&string[1]) - 1;
-            if (string[2] == '-') {
-                if (string[3] == 'P' || string[3] == 'T' || string[3] == 'R' || string[3] == 'S') {
+            if (string[2] == '-')
+            {
+                if (string[3] == 'P' || string[3] == 'T' || string[3] == 'R' || string[3] == 'S')
+                {
                     mover_tablero_a_ordenado(tablero, col_origen, fila_origen, &mazo_ordenado[string[3] - 'P']);
-                } else {
+                }
+                else
+                {
                     int col_destino = string[3] - 'A';
                     int fila_destino = atoi(&string[4]) - 1;
                     mover_tablero_a_tablero(tablero, col_origen, fila_origen, col_destino, fila_destino);
                 }
             }
-        } else if (string[0] == 'P' || string[0] == 'T' || string[0] == 'R' || string[0] == 'S') {
+        }
+        else if (string[0] == 'P' || string[0] == 'T' || string[0] == 'R' || string[0] == 'S')
+        {
             // Movimiento de mazo ordenado a tablero
             int col = string[2] - 'A';
             int fila = atoi(&string[3]) - 1;
