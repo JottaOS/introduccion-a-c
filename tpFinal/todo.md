@@ -1,7 +1,7 @@
 # Todo list
 
 1. [x] Ingresar e interpretar los movimientos por teclado (ver código del profe)
-1. [ ] Agregar la validación para las letras correspondientes al codigo del profe
+1. [x] Agregar la validación para las letras correspondientes al codigo del profe
 1. [ ] Extender el tablero para que permita stackear 19 niveles de cartas (filas)
 1. [ ] Crear el espacio para las 4 pilas de mazos ordenados (P,T,R,S)
 1. [ ] Lógica para ocultar y desocultar cartas
