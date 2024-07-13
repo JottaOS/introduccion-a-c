@@ -32,19 +32,25 @@ void inicializar_mazo_ordenado(Palo *mazo)
 
 void mover_mazo_a_tablero(Carta mazo_desordenado[], int *indice_mazo, Carta tablero[7][19], int columna, int fila)
 {
+    while (mazo_desordenado[*indice_mazo].estado == 2)
+        (*indice_mazo)++;
     if (*indice_mazo < 52)
     {
         tablero[columna][fila] = mazo_desordenado[*indice_mazo];
         tablero[columna][fila].oculto = 0;
+        mazo_desordenado[*indice_mazo].estado = 2;
         (*indice_mazo)++;
     }
 }
 
 void mover_mazo_a_ordenado(Carta mazo_desordenado[], int *indice_mazo, Palo *mazo_ordenado)
 {
+    while (mazo_desordenado[*indice_mazo].estado == 2)
+        (*indice_mazo)++;
     if (*indice_mazo < 52)
     {
         mazo_ordenado->cartas[++(mazo_ordenado->tope)] = mazo_desordenado[*indice_mazo];
+        mazo_desordenado[*indice_mazo].estado = 2;
         (*indice_mazo)++;
     }
 }
@@ -55,7 +61,7 @@ void mover_tablero_a_ordenado(Carta tablero[7][19], int col, int fila, Palo *maz
     {
         mazo_ordenado->cartas[++(mazo_ordenado->tope)] = tablero[col][fila];
         tablero[col][fila].valor = -1;
-
+        mazo_ordenado->cartas[mazo_ordenado->tope].estado = 2;
         if (fila > 0 && tablero[col][fila - 1].valor != -1)
         {
             tablero[col][fila - 1].oculto = 0;
@@ -82,6 +88,8 @@ void mover_ordenado_a_tablero(Palo *mazo_ordenado, Carta tablero[7][19], int col
     if (mazo_ordenado->tope >= 0)
     {
         tablero[col][fila] = mazo_ordenado->cartas[(mazo_ordenado->tope)--];
+        tablero[col][fila].oculto = 0;
+        tablero[col][fila].estado = 2;
     }
 }
 
@@ -153,8 +161,12 @@ void cargar_mazo(Carta Mazo[])
 
 void mezclar(Carta Mazo[], Carta Mazo_desordenado[])
 {
-
     int i, r;
+    for (i = 0; i < 52; i++)
+    {
+        Mazo[i].estado = 0;
+    }
+
     for (i = 0; i < 52; i++)
     {
         do
@@ -187,8 +199,11 @@ void cargar_tablero(Carta Mazo_desordenado[52], Carta tablero[7][19])
     {
         for (j = 0; j <= i; j++)
         {
+            while (Mazo_desordenado[c].estado == 2)
+                c++;
             tablero[i][j] = Mazo_desordenado[c];
             tablero[i][j].oculto = (j == i) ? 0 : 1;
+            Mazo_desordenado[c].estado = 2;
             c++;
         }
         for (j = i + 1; j < 19; j++)
@@ -204,8 +219,11 @@ void imprimir_tablero(Carta tablero[7][19], Carta mazo_desordenado[52], int indi
 
     printf("\tM\t\tP\tT\tR\tS\n");
     printf("\t");
-    mazo_desordenado[indice_mazo].oculto = 0;
-    imprimir_carta(mazo_desordenado[0]);
+    if (indice_mazo < 52)
+    {
+        mazo_desordenado[indice_mazo].oculto = 0;
+        imprimir_carta(mazo_desordenado[indice_mazo]);
+    }
     printf("\n\n");
     printf("   A\tB\tC\tD\tE\tF\tG\n");
 
@@ -438,6 +456,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
             mover_ordenado_a_tablero(&palos[string[0] - 'P'], tablero, col, fila);
         }
 
+        printf("indice mazo %d\n", indice_mazo);
         imprimir_accion(string);
         printf("\n");
         imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
@@ -463,7 +482,7 @@ int main()
         inicializar_mazo_ordenado(&palos[i]);
     }
 
-    imprimir_tablero(tablero, Mazo_desordenado, 0);
+    imprimir_tablero(tablero, Mazo_desordenado, 28);
 
     juego(Mazo, Mazo_desordenado, tablero, palos);
 
