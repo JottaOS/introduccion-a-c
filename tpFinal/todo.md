@@ -7,6 +7,7 @@
 1. [x] Lógica para ocultar y desocultar cartas
 1. [x] Lógica para mover cartas
 1. [ ] Descubrir cartas del mazo desordenado
+1. [ ] Corregir cartar repetidas en mazo desordenado
 1. [ ] Lógica para stackear las pilas de mazos ordenados
 1. [ ] Validar movimientos permitidos
 1. [ ] Chequear condición de victoria por cada jugada
