@@ -31,7 +31,6 @@ typedef struct info_movimiento
     char tipo_movimiento; /* T para tablero, P para palos */
     int origen[2];
     int destino[2];
-    int es_valido;
 } InfoMovimiento;
 
 void inicializar_mazo_ordenado(Palo *mazo)
@@ -284,6 +283,11 @@ InfoMovimiento obtener_info_movimiento(char *string, Carta tablero[7][19], Carta
         {
             sscanf(string, "%c-%c", &origen, &destino);
             info.tipo_movimiento = 'P';
+        }
+        else
+        {
+            sscanf(string, "%c-%c%d", &origen, &destino, &posicion_destino);
+            info.tipo_movimiento = 'T';
         }
         break;
     case 2:
@@ -558,6 +562,7 @@ int validar_movimiento_tablero(InfoMovimiento *movimiento, Carta tablero[7][19])
 // todo: borrar, esto es solo para debug
 void imprimirInfoMovimiento(const InfoMovimiento *movimiento)
 {
+    printf("** DEBUG **\n");
     // Imprimir información de la carta
     printf("Carta: ");
     imprimir_carta(movimiento->carta);
@@ -568,8 +573,6 @@ void imprimirInfoMovimiento(const InfoMovimiento *movimiento)
     printf("Origen: [%d, %d]\n", movimiento->origen[0], movimiento->origen[1]);
     // Imprimir destino
     printf("Destino: [%d, %d]\n", movimiento->destino[0], movimiento->destino[1]);
-    // Imprimir si el movimiento es válido
-    printf("Es valido: %d\n", movimiento->es_valido);
 }
 
 void imprimir_carta_log(FILE *f, Carta carta)
@@ -585,7 +588,6 @@ void imprimir_tablero_log(FILE *f, Carta tablero[7][19], Carta mazo_desordenado[
     fprintf(f, "\t");
     if (indice_mazo < 52)
     {
-        mazo_desordenado[indice_mazo].oculto = 0; // Siempre mostrar la carta del mazo en el log.
         imprimir_carta_log(f, mazo_desordenado[indice_mazo]);
     }
     fprintf(f, "\n\n");
@@ -651,7 +653,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
         else
         {
             InfoMovimiento info_movimiento = obtener_info_movimiento(string, tablero, Mazo_desordenado, palos, indice_mazo);
-            imprimirInfoMovimiento(&info_movimiento);
+            imprimirInfoMovimiento(&info_movimiento); // todo: esta funcion es solo de debug y se borra antes de entregar
             if (!validar_movimiento_tablero(&info_movimiento, tablero))
             {
                 printf("El movimiento %s no es valido.\n\n", string);

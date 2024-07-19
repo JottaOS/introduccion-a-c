@@ -1,3 +1,4 @@
 *.zip
 *.exe
 .vscode
+log.txt
