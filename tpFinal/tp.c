@@ -549,14 +549,21 @@ int validar_movimiento_tablero(InfoMovimiento *movimiento, Carta tablero[7][19])
     }
 
     // en caso de que la fila_destino sea 0, verificar que la carta que se pretende mover sea king
-    if (fila_destino == 0 && movimiento->carta_origen.valor != 13)
+    if (fila_destino == 0)
     {
-        printf("La carta debe ser King para mover a una columna vacia\n");
-        return 0;
+        if (movimiento->carta_origen.valor != 13)
+        {
+
+            printf("La carta debe ser King para mover a una columna vacia\n");
+            return 0;
+        }
+
+        // ya no es necesario continuar con las validaciones de aquí en adelante, para este caso
+        return 1;
     }
 
     // verificar que en tablero[fila_destino - 1][columna_destino] exista una carta
-    if (fila_destino != 0 & carta_anterior.valor == -1)
+    if (carta_anterior.valor == -1)
     {
         printf("El espacio previo al destino esta vacio\n");
         return 0;
@@ -662,6 +669,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
         indice_mazo++;
     } while (Mazo_desordenado[indice_mazo].estado == 2);
 
+    printf("\n\n");
     imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
     while (!juego_finalizado)
     {
@@ -681,6 +689,11 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
         {
             do
             {
+                if (indice_mazo + 1 >= 52)
+                {
+                    printf("Reiniciando indice mazo");
+                    indice_mazo = 0; // Resetear el índice del mazo
+                }
                 indice_mazo++;
             } while (Mazo_desordenado[indice_mazo].estado == 2);
         }
@@ -757,8 +770,8 @@ void proceso()
     {
         inicializar_mazo_ordenado(&palos[i]);
     }
-    
-    // juego(Mazo, Mazo_desordenado, tablero, palos);
+
+    juego(Mazo, Mazo_desordenado, tablero, palos);
 }
 
 int main()
