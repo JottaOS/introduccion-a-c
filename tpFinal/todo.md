@@ -14,5 +14,5 @@
 1. [ ] Validar movimiento palo-tablero
 1. [ ] Validar movimiento tablero-palo
 1. [ ] Validar movimiento mazo-palo
-1. [ ] Chequear condición de victoria por cada jugada
+1. [x] Chequear condición de victoria por cada jugada
 1. [x] Generar Log de juego en un txt

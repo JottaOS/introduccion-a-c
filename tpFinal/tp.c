@@ -636,6 +636,16 @@ void imprimir_tablero_log(FILE *f, Carta tablero[7][19], Carta mazo_desordenado[
     fprintf(f, "\n\n\n");
 }
 
+bool verificar_victoria(Palo palos[4]) {
+    int i;
+    for (i = 0; i < 4; i++) {
+        if (palos[i].tope != 12) { // 13 cartas, índice de la última carta es 12
+            return false; // Si cualquier palo no está lleno, no hay victoria
+        }
+    }
+    return true; // Todos los palos están llenos
+}
+
 void escribir_log(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo, int nro_jugada)
 {
     FILE *logfile = fopen("log.txt", "a");
@@ -648,6 +658,22 @@ void escribir_log(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_m
     else
     {
         perror("Error al abrir archivo de log");
+    }
+}
+
+//todo: borrar pq es para PRUEBA de CONDICION DE VICTORIA
+void inicializar_palos_para_prueba(Palo palos[4]) {
+    int i,j;
+    for (i = 0; i < 4; i++) {
+        palos[i].tope = 12; // Indica que hay 13 cartas (de 0 a 12)
+        for (j = 0; j < 13; j++) {
+            palos[i].cartas[j].valor = j + 1;
+            palos[i].cartas[j].palo = i + 3; // Asignar un palo diferente a cada uno (P = 3, T = 4, R = 5, S = 6)
+            palos[i].cartas[j].estado = 2;
+            palos[i].cartas[j].oculto = 0;
+            palos[i].cartas[j].color = (i < 2) ? 1 : 0; // Asignar colores (negro para P y T, rojo para R y S)
+            sprintf(palos[i].cartas[j].impresion, "%d%c", j + 1, 'P' + i); // P, T, R, S
+        }
     }
 }
 
@@ -736,6 +762,11 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
 
         // printf("indice mazo %d\n", indice_mazo);
         // imprimir_accion(string);
+         if (verificar_victoria(palos)) {
+            printf("Felicidades, has ganado la partida\n");
+            juego_finalizado = 1;
+        }
+        
         printf("\n");
         imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
     }
@@ -758,7 +789,8 @@ void proceso()
         inicializar_mazo_ordenado(&palos[i]);
     }
     
-    // juego(Mazo, Mazo_desordenado, tablero, palos);
+    inicializar_palos_para_prueba(palos);//todo: borrar esto pq es para prueba noma
+    juego(Mazo, Mazo_desordenado, tablero, palos);
 }
 
 int main()
