@@ -6,9 +6,13 @@
 1. [x] Crear el espacio para las 4 pilas de mazos ordenados (P,T,R,S)
 1. [x] Lógica para ocultar y desocultar cartas
 1. [x] Lógica para mover cartas
-1. [ ] Descubrir cartas del mazo desordenado
-1. [ ] Corregir cartar repetidas en mazo desordenado
+1. [x] Descubrir cartas del mazo desordenado
+1. [x] Corregir cartar repetidas en mazo desordenado
 1. [ ] Lógica para stackear las pilas de mazos ordenados
-1. [ ] Validar movimientos permitidos
+1. [x] Validar movimiento tablero-tablero
+1. [x] Validar movimiento mazo-tablero
+1. [ ] Validar movimiento palo-tablero
+1. [ ] Validar movimiento tablero-palo
+1. [ ] Validar movimiento mazo-palo
 1. [ ] Chequear condición de victoria por cada jugada
-1. [ ] Generar Log de juego en un txt (por cada movimiento, las cartas no deben estar)
+1. [x] Generar Log de juego en un txt

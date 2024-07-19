@@ -25,6 +25,15 @@ typedef struct
     int tope;
 } Palo;
 
+typedef struct info_movimiento
+{
+    Carta carta_origen;
+    Carta carta_destino;
+    char tipo_movimiento; /* T para tablero, P para palos */
+    int origen[2];
+    int destino[2];
+} InfoMovimiento;
+
 void inicializar_mazo_ordenado(Palo *mazo)
 {
     mazo->tope = -1;
@@ -209,8 +218,25 @@ void cargar_tablero(Carta Mazo_desordenado[52], Carta tablero[7][19])
         for (j = i + 1; j < 19; j++)
         {
             tablero[i][j].valor = -1;
+            tablero[i][j].color = -1;
         }
     }
+}
+
+void debug_mazo_desordenado(Carta mazo[52])
+{
+    int i;
+    printf("Mazo desordenado\n[ ");
+    for (i = 0; i < 52; i++)
+    {
+        if (mazo[i].estado != 2)
+        {
+
+            char *color = mazo[i].color == 0 ? RED : BLK;
+            printf("%s%s%s, ", color, mazo[i].impresion, COLOR_RESET);
+        }
+    }
+    printf("]\n");
 }
 
 void imprimir_tablero(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo)
@@ -256,6 +282,98 @@ int encuentra_guion(char string[])
     }
 
     return pos;
+}
+
+InfoMovimiento obtener_info_movimiento(char *string, Carta tablero[7][19], Carta mazo_desordenado[52], Palo palos[4], int indice_mazo)
+{
+    char primer_caracter = string[0];
+    InfoMovimiento info;
+
+    int posicion_origen, posicion_destino;
+    int pos = encuentra_guion(string);
+    int longitud = strlen(string);
+    char origen, destino;
+
+    switch (pos)
+    {
+    case 1:
+        if (longitud == 3)
+        {
+            sscanf(string, "%c-%c", &origen, &destino);
+            info.tipo_movimiento = 'P';
+        }
+        else
+        {
+            sscanf(string, "%c-%c%d", &origen, &destino, &posicion_destino);
+            info.tipo_movimiento = 'T';
+        }
+        break;
+    case 2:
+        if (longitud == 4)
+        {
+            sscanf(string, "%c%d-%c", &origen, &posicion_origen, &destino);
+            info.tipo_movimiento = 'P';
+        }
+        else
+        {
+            sscanf(string, "%c%d-%c%d", &origen, &posicion_origen, &destino, &posicion_destino);
+            info.tipo_movimiento = 'T';
+        }
+        break;
+    case 3:
+        if (longitud == 5)
+        {
+            sscanf(string, "%c%d-%c", &origen, &posicion_origen, &destino);
+            info.tipo_movimiento = 'P';
+        }
+        else
+        {
+            sscanf(string, "%c%d-%c%d", &origen, &posicion_origen, &destino, &posicion_destino);
+            info.tipo_movimiento = 'T';
+        }
+    }
+
+    int fila = 0, columna = 0;
+
+    if (primer_caracter == 'M')
+    {
+        // todo: corregir esto para incluir el caso de M a Palo
+        info.carta_origen = mazo_desordenado[indice_mazo];
+        info.destino[0] = posicion_destino - 1;
+        info.destino[1] = destino - 'A';
+
+        info.carta_destino = tablero[info.destino[1]][info.destino[0]];
+        return info;
+    }
+
+    if (primer_caracter >= 'A' && primer_caracter <= 'G')
+    {
+        columna = primer_caracter - 'A';
+        fila = posicion_origen - 1;
+
+        info.carta_origen = tablero[columna][fila];
+        info.origen[0] = fila;
+        info.origen[1] = columna;
+
+        info.destino[0] = posicion_destino - 1;
+        info.destino[1] = destino - 'A';
+
+        info.carta_destino = tablero[info.destino[1]][info.destino[0]];
+        return info;
+    }
+
+    /* todo: corregir despues
+        int indice_palo =
+            primer_caracter == 'P'   ? 0
+            : primer_caracter == 'T' ? 1
+            : primer_caracter == 'R' ? 2
+            : primer_caracter == 'S' ? 3
+                                     : -1;
+
+        // todo: el tope se inicializa con -1, queda pendiente ver como se actualiza el tope al mover a un palo
+        return palos[indice_palo].cartas[palos->tope + 1];
+
+    */
 }
 
 void imprimir_accion(char string[])
@@ -400,73 +518,231 @@ void capturar(char string[])
     getchar();
 }
 
+int validar_movimiento_tablero(InfoMovimiento *movimiento, Carta tablero[7][19])
+{
+
+    // las posiciones son vectores de 2 elementos que representan la fila y la columna del tablero
+    int fila_destino = movimiento->destino[0];
+    int columna_destino = movimiento->destino[1];
+
+    Carta carta_anterior = tablero[columna_destino][fila_destino - 1];
+
+    // validar que la carta no esté oculta
+    if (movimiento->carta_origen.oculto)
+    {
+        printf("La carta esta oculta\n");
+        return 0;
+    }
+
+    // no hay ninguna carta de origen
+    if (movimiento->carta_origen.valor == -1)
+    {
+        printf("No hay una carta en la posicion de origen\n");
+        return 0;
+    }
+
+    // que no reemplace una carta (la posicion de destino no está vacía)
+    if (movimiento->carta_destino.valor != -1)
+    {
+        printf("Ya existe una carta en esa posicion\n");
+        return 0;
+    }
+
+    // en caso de que la fila_destino sea 0, verificar que la carta que se pretende mover sea king
+    if (fila_destino == 0 && movimiento->carta_origen.valor != 13)
+    {
+        printf("La carta debe ser King para mover a una columna vacia\n");
+        return 0;
+    }
+
+    // verificar que en tablero[fila_destino - 1][columna_destino] exista una carta
+    if (fila_destino != 0 & carta_anterior.valor == -1)
+    {
+        printf("El espacio previo al destino esta vacio\n");
+        return 0;
+    }
+
+    // la carta debe ser del color opuesto (si mi carta es roja, la otra debe ser negra y viceversa)
+    // valores de colores: rojo = 0, negro = 1
+    if (carta_anterior.color == movimiento->carta_origen.color)
+    {
+        printf("Ambos colores son iguales\n");
+        return 0;
+    }
+
+    // el valor de la carta en la posicion tablero[fila_destino - 1][columna_destino] debe tener valor de nuestra carta de origen + 1.
+    if (carta_anterior.valor != movimiento->carta_origen.valor + 1)
+    {
+        printf("El valor de la carta anterior debe ser igual a %d pero es %d\n", movimiento->carta_origen.valor + 1, carta_anterior.valor);
+        return 0;
+    }
+
+    return 1;
+}
+
+// todo: borrar, esto es solo para debug
+void imprimirInfoMovimiento(const InfoMovimiento *movimiento)
+{
+    printf("** DEBUG **\n");
+    // Imprimir información de la carta
+    printf("Carta origen: ");
+    imprimir_carta(movimiento->carta_origen);
+    printf("\n");
+    printf("Carta destino: ");
+    imprimir_carta(movimiento->carta_destino);
+    printf("\n");
+    // Imprimir tipo de movimiento
+    printf("Tipo de movimiento: %c\n", movimiento->tipo_movimiento);
+    // Imprimir origen
+    printf("Origen: [%d, %d]\n", movimiento->origen[0], movimiento->origen[1]);
+    // Imprimir destino
+    printf("Destino: [%d, %d]\n", movimiento->destino[0], movimiento->destino[1]);
+}
+
+void imprimir_carta_log(FILE *f, Carta carta)
+{
+    fprintf(f, "%-8s", carta.impresion);
+}
+
+void imprimir_tablero_log(FILE *f, Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo)
+{
+    int i, j;
+
+    fprintf(f, "\tM\t\tP\tT\tR\tS\n");
+    fprintf(f, "\t");
+    if (indice_mazo < 52)
+    {
+        imprimir_carta_log(f, mazo_desordenado[indice_mazo]);
+    }
+    fprintf(f, "\n\n");
+    fprintf(f, "   A       B       C       D       E       F       G\n");
+
+    for (j = 0; j < 19; j++)
+    {
+        fprintf(f, "%2d ", j + 1);
+        for (i = 0; i < 7; i++)
+        {
+            if (tablero[i][j].valor != -1)
+            {
+                imprimir_carta_log(f, tablero[i][j]);
+            }
+            else
+            {
+                fprintf(f, "%-8s", "");
+            }
+        }
+        fprintf(f, "\n");
+    }
+    fprintf(f, "\n\n\n");
+}
+
+void escribir_log(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo, int nro_jugada)
+{
+    FILE *logfile = fopen("log.txt", "a");
+    if (logfile != NULL)
+    {
+        fprintf(logfile, "Jugada Nro: %d\n", nro_jugada);
+        imprimir_tablero_log(logfile, tablero, mazo_desordenado, indice_mazo);
+        fclose(logfile);
+    }
+    else
+    {
+        perror("Error al abrir archivo de log");
+    }
+}
+
 int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo palos[4])
 {
     char string[8];
     int indice_mazo = 0;
     int juego_finalizado = 0;
+    int nro_jugada = 0;
+    do
+    {
+        indice_mazo++;
+    } while (Mazo_desordenado[indice_mazo].estado == 2);
+
+    imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
     while (!juego_finalizado)
     {
+        debug_mazo_desordenado(Mazo_desordenado);
+        nro_jugada++;
+        escribir_log(tablero, Mazo_desordenado, indice_mazo, nro_jugada);
         capturar(string);
+        system("cls");
         if (!validar_ingreso(string))
         {
-            printf("El movimiento %s no es valido.\n", string);
+            printf("El movimiento %s no es valido.\n\n", string);
+            imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
             continue;
         }
+
         if (strcmp(string, "M") == 0)
         {
-            indice_mazo++;
+            do
+            {
+                indice_mazo++;
+            } while (Mazo_desordenado[indice_mazo].estado == 2);
         }
-        else if (string[0] == 'M' && string[1] == '-')
+        else
         {
-            if (string[2] == 'P' || string[2] == 'T' || string[2] == 'R' || string[2] == 'S')
+            InfoMovimiento info_movimiento = obtener_info_movimiento(string, tablero, Mazo_desordenado, palos, indice_mazo);
+            imprimirInfoMovimiento(&info_movimiento); // todo: esta funcion es solo de debug y se borra antes de entregar
+            if (!validar_movimiento_tablero(&info_movimiento, tablero))
             {
-                mover_mazo_a_ordenado(Mazo_desordenado, &indice_mazo, &palos[string[2] - 'P']);
+                printf("El movimiento %s no es valido.\n\n", string);
+                imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
+                continue;
             }
-            else
+            if (string[0] == 'M' && string[1] == '-')
             {
-                int col = string[2] - 'A';
-                int fila = atoi(&string[3]) - 1;
-                mover_mazo_a_tablero(Mazo_desordenado, &indice_mazo, tablero, col, fila);
-            }
-        }
-        else if (string[0] >= 'A' && string[0] <= 'G')
-        {
-            int col_origen = string[0] - 'A';
-            int fila_origen = atoi(&string[1]) - 1;
-            if (string[2] == '-')
-            {
-                if (string[3] == 'P' || string[3] == 'T' || string[3] == 'R' || string[3] == 'S')
+                if (string[2] == 'P' || string[2] == 'T' || string[2] == 'R' || string[2] == 'S')
                 {
-                    mover_tablero_a_ordenado(tablero, col_origen, fila_origen, &palos[string[3] - 'P']);
+                    mover_mazo_a_ordenado(Mazo_desordenado, &indice_mazo, &palos[string[2] - 'P']);
                 }
                 else
                 {
-                    int col_destino = string[3] - 'A';
-                    int fila_destino = atoi(&string[4]) - 1;
-                    mover_tablero_a_tablero(tablero, col_origen, fila_origen, col_destino, fila_destino);
+                    int col = string[2] - 'A';
+                    int fila = atoi(&string[3]) - 1;
+                    mover_mazo_a_tablero(Mazo_desordenado, &indice_mazo, tablero, col, fila);
                 }
             }
-        }
-        else if (string[0] == 'P' || string[0] == 'T' || string[0] == 'R' || string[0] == 'S')
-        {
+            else if (string[0] >= 'A' && string[0] <= 'G')
+            {
+                int col_origen = string[0] - 'A';
+                int fila_origen = atoi(&string[1]) - 1;
+                if (string[2] == '-')
+                {
+                    if (string[3] == 'P' || string[3] == 'T' || string[3] == 'R' || string[3] == 'S')
+                    {
+                        mover_tablero_a_ordenado(tablero, col_origen, fila_origen, &palos[string[3] - 'P']);
+                    }
+                    else
+                    {
+                        int col_destino = string[3] - 'A';
+                        int fila_destino = atoi(&string[4]) - 1;
+                        mover_tablero_a_tablero(tablero, col_origen, fila_origen, col_destino, fila_destino);
+                    }
+                }
+            }
+            else if (string[0] == 'P' || string[0] == 'T' || string[0] == 'R' || string[0] == 'S')
+            {
 
-            int col = string[2] - 'A';
-            int fila = atoi(&string[3]) - 1;
-            mover_ordenado_a_tablero(&palos[string[0] - 'P'], tablero, col, fila);
+                int col = string[2] - 'A';
+                int fila = atoi(&string[3]) - 1;
+                mover_ordenado_a_tablero(&palos[string[0] - 'P'], tablero, col, fila);
+            }
         }
 
-        printf("indice mazo %d\n", indice_mazo);
-        imprimir_accion(string);
+        // printf("indice mazo %d\n", indice_mazo);
+        // imprimir_accion(string);
         printf("\n");
         imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
     }
 }
 
-int main()
+void proceso()
 {
-    srand(time(NULL));
-
     Carta Mazo[52];
     Carta Mazo_desordenado[52];
     Carta tablero[7][19];
@@ -481,10 +757,13 @@ int main()
     {
         inicializar_mazo_ordenado(&palos[i]);
     }
+    
+    // juego(Mazo, Mazo_desordenado, tablero, palos);
+}
 
-    imprimir_tablero(tablero, Mazo_desordenado, 28);
-
-    juego(Mazo, Mazo_desordenado, tablero, palos);
-
+int main()
+{
+    srand(time(NULL));
+    proceso();
     return 0;
 }
