@@ -258,6 +258,67 @@ int encuentra_guion(char string[])
     return pos;
 }
 
+Carta obtener_carta(char *string, Carta tablero[7][19], Carta mazo_desordenado[52], Palo palos[4], int indice_mazo)
+{
+    char primer_caracter = string[0];
+    if (primer_caracter == 'M')
+    {
+        return mazo_desordenado[indice_mazo];
+    }
+
+    int posicion_origen, posicion_destino;
+    int pos = encuentra_guion(string);
+    int longitud = strlen(string);
+    char origen, destino;
+
+    switch (pos)
+    {
+    case 1:
+        if (longitud == 3)
+        {
+            sscanf(string, "%c-%c", &origen, &destino);
+        }
+        break;
+    case 2:
+        if (longitud == 4)
+        {
+            sscanf(string, "%c%d-%c", &origen, &posicion_origen, &destino);
+        }
+        else
+        {
+            sscanf(string, "%c%d-%c%d", &origen, &posicion_origen, &destino, &posicion_destino);
+        }
+        break;
+    case 3:
+        if (longitud == 5)
+        {
+            sscanf(string, "%c%d-%c", &origen, &posicion_origen, &destino);
+        }
+        else
+        {
+            sscanf(string, "%c%d-%c%d", &origen, &posicion_origen, &destino, &posicion_destino);
+        }
+    }
+
+    if (primer_caracter >= 'A' && primer_caracter <= 'G')
+    {
+        int columna = primer_caracter - 65;
+        int fila = posicion_origen - 1;
+
+        return tablero[columna][fila];
+    }
+
+    int indice_palo =
+        primer_caracter == 'P'   ? 0
+        : primer_caracter == 'T' ? 1
+        : primer_caracter == 'R' ? 2
+        : primer_caracter == 'S' ? 3
+                                 : -1;
+
+    // todo: el tope se inicializa con -1, queda pendiente ver como se actualiza el tope al mover a un palo
+    return palos[indice_palo].cartas[palos->tope + 1];
+}
+
 void imprimir_accion(char string[])
 {
     int pos, longitud, po, pd;
@@ -400,6 +461,44 @@ void capturar(char string[])
     getchar();
 }
 
+int validar_movimiento_tablero(Carta carta, int posicion_destino[], Carta tablero[7][19])
+{
+
+    // las posiciones son vectores de 2 elementos que representan la fila y la columna del tablero
+    int fila_destino = posicion_destino[0];
+    int columna_destino = posicion_destino[1];
+
+    Carta destino = tablero[columna_destino][fila_destino];
+    Carta carta_anterior = tablero[columna_destino][fila_destino - 1];
+
+    // que no reemplace una carta (la posicion de destino no está vacía)
+    if (destino.valor != -1)
+        return 0;
+
+    // en caso de que la fila_destino sea 0, verificar que la carta que se pretende mover sea king
+    if (fila_destino == 0 && carta.valor != 13)
+        return 0;
+
+    // verificar que en tablero[fila_destino - 1][columna_destino] exista una carta
+    if (fila_destino != 0 & carta_anterior.valor == -1)
+        return 0;
+
+    // la carta debe ser del color opuesto (si mi carta es roja, la otra debe ser negra y viceversa)
+    // valores de colores: rojo = 0, negro = 1
+    if (destino.color == carta.color)
+        return 0;
+
+    // el valor de la carta en la posicion tablero[fila_destino - 1][columna_destino] debe tener valor de nuestra carta de origen + 1.
+    if (carta_anterior.valor != carta.valor + 1)
+        return 0;
+
+    // validar que la carta no esté oculta
+    if (carta.oculto)
+        return 0;
+
+    return 1;
+}
+
 int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo palos[4])
 {
     char string[8];
@@ -408,65 +507,74 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
     while (!juego_finalizado)
     {
         capturar(string);
+        system("cls");
         if (!validar_ingreso(string))
         {
-            printf("El movimiento %s no es valido.\n", string);
+            printf("El movimiento %s no es valido.\n\n", string);
+            imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
             continue;
         }
+
         if (strcmp(string, "M") == 0)
         {
             indice_mazo++;
         }
-        else if (string[0] == 'M' && string[1] == '-')
+        else
         {
-            if (string[2] == 'P' || string[2] == 'T' || string[2] == 'R' || string[2] == 'S')
+            Carta carta = obtener_carta(string, tablero, Mazo_desordenado, palos, indice_mazo);
+            printf("Carta obtenida: \t\t");
+            printf("%d %d\t\t", carta.valor, carta.color);
+            imprimir_carta(carta);
+            // int validar_movimiento_tablero(Carta carta, int posicion_destino[], Carta tablero[7][19])
+            if (string[0] == 'M' && string[1] == '-')
             {
-                mover_mazo_a_ordenado(Mazo_desordenado, &indice_mazo, &palos[string[2] - 'P']);
-            }
-            else
-            {
-                int col = string[2] - 'A';
-                int fila = atoi(&string[3]) - 1;
-                mover_mazo_a_tablero(Mazo_desordenado, &indice_mazo, tablero, col, fila);
-            }
-        }
-        else if (string[0] >= 'A' && string[0] <= 'G')
-        {
-            int col_origen = string[0] - 'A';
-            int fila_origen = atoi(&string[1]) - 1;
-            if (string[2] == '-')
-            {
-                if (string[3] == 'P' || string[3] == 'T' || string[3] == 'R' || string[3] == 'S')
+                if (string[2] == 'P' || string[2] == 'T' || string[2] == 'R' || string[2] == 'S')
                 {
-                    mover_tablero_a_ordenado(tablero, col_origen, fila_origen, &palos[string[3] - 'P']);
+                    mover_mazo_a_ordenado(Mazo_desordenado, &indice_mazo, &palos[string[2] - 'P']);
                 }
                 else
                 {
-                    int col_destino = string[3] - 'A';
-                    int fila_destino = atoi(&string[4]) - 1;
-                    mover_tablero_a_tablero(tablero, col_origen, fila_origen, col_destino, fila_destino);
+                    int col = string[2] - 'A';
+                    int fila = atoi(&string[3]) - 1;
+                    mover_mazo_a_tablero(Mazo_desordenado, &indice_mazo, tablero, col, fila);
                 }
             }
-        }
-        else if (string[0] == 'P' || string[0] == 'T' || string[0] == 'R' || string[0] == 'S')
-        {
+            else if (string[0] >= 'A' && string[0] <= 'G')
+            {
+                int col_origen = string[0] - 'A';
+                int fila_origen = atoi(&string[1]) - 1;
+                if (string[2] == '-')
+                {
+                    if (string[3] == 'P' || string[3] == 'T' || string[3] == 'R' || string[3] == 'S')
+                    {
+                        mover_tablero_a_ordenado(tablero, col_origen, fila_origen, &palos[string[3] - 'P']);
+                    }
+                    else
+                    {
+                        int col_destino = string[3] - 'A';
+                        int fila_destino = atoi(&string[4]) - 1;
+                        mover_tablero_a_tablero(tablero, col_origen, fila_origen, col_destino, fila_destino);
+                    }
+                }
+            }
+            else if (string[0] == 'P' || string[0] == 'T' || string[0] == 'R' || string[0] == 'S')
+            {
 
-            int col = string[2] - 'A';
-            int fila = atoi(&string[3]) - 1;
-            mover_ordenado_a_tablero(&palos[string[0] - 'P'], tablero, col, fila);
+                int col = string[2] - 'A';
+                int fila = atoi(&string[3]) - 1;
+                mover_ordenado_a_tablero(&palos[string[0] - 'P'], tablero, col, fila);
+            }
         }
 
-        printf("indice mazo %d\n", indice_mazo);
-        imprimir_accion(string);
+        // printf("indice mazo %d\n", indice_mazo);
+        // imprimir_accion(string);
         printf("\n");
         imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
     }
 }
 
-int main()
+void proceso()
 {
-    srand(time(NULL));
-
     Carta Mazo[52];
     Carta Mazo_desordenado[52];
     Carta tablero[7][19];
@@ -485,6 +593,11 @@ int main()
     imprimir_tablero(tablero, Mazo_desordenado, 28);
 
     juego(Mazo, Mazo_desordenado, tablero, palos);
+}
 
+int main()
+{
+    srand(time(NULL));
+    proceso();
     return 0;
 }
