@@ -39,6 +39,15 @@ void inicializar_mazo_ordenado(Palo *mazo)
     mazo->tope = -1;
 }
 
+void obtener_tope_palo(Carta *carta_tope, Palo palos[4], int indice)
+{
+    Palo palo = palos[indice];
+    if (palo.tope == -1)
+        carta_tope->valor = -1;
+    else
+        *carta_tope = palo.cartas[palo.tope];
+}
+
 void mover_mazo_a_tablero(Carta mazo_desordenado[], int *indice_mazo, Carta tablero[7][19], int columna, int fila)
 {
     while (mazo_desordenado[*indice_mazo].estado == 2)
@@ -239,7 +248,7 @@ void debug_mazo_desordenado(Carta mazo[52])
     printf("]\n");
 }
 
-void imprimir_tablero(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo)
+void imprimir_tablero(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo, Palo palos[4])
 {
     int i, j;
 
@@ -249,6 +258,17 @@ void imprimir_tablero(Carta tablero[7][19], Carta mazo_desordenado[52], int indi
     {
         mazo_desordenado[indice_mazo].oculto = 0;
         imprimir_carta(mazo_desordenado[indice_mazo]);
+    }
+
+    printf(" \t");
+    for (i = 0; i < 4; i++)
+    {
+        Carta tope_palo;
+        obtener_tope_palo(&tope_palo, palos, i);
+        if (tope_palo.valor != -1)
+            imprimir_carta(tope_palo);
+        else
+            printf("-\t");
     }
     printf("\n\n");
     printf("   A\tB\tC\tD\tE\tF\tG\n");
@@ -586,7 +606,6 @@ int validar_movimiento_tablero(InfoMovimiento *movimiento, Carta tablero[7][19])
 
     return 1;
 }
-
 // todo: borrar, esto es solo para debug
 void imprimirInfoMovimiento(const InfoMovimiento *movimiento)
 {
@@ -670,7 +689,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
     } while (Mazo_desordenado[indice_mazo].estado == 2);
 
     printf("\n\n");
-    imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
+    imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
     while (!juego_finalizado)
     {
         debug_mazo_desordenado(Mazo_desordenado);
@@ -681,7 +700,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
         if (!validar_ingreso(string))
         {
             printf("El movimiento %s no es valido.\n\n", string);
-            imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
+            imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
             continue;
         }
 
@@ -704,7 +723,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
             if (!validar_movimiento_tablero(&info_movimiento, tablero))
             {
                 printf("El movimiento %s no es valido.\n\n", string);
-                imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
+                imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
                 continue;
             }
             if (string[0] == 'M' && string[1] == '-')
@@ -750,7 +769,39 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
         // printf("indice mazo %d\n", indice_mazo);
         // imprimir_accion(string);
         printf("\n");
-        imprimir_tablero(tablero, Mazo_desordenado, indice_mazo);
+        imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
+    }
+}
+
+bool verificar_victoria(Palo palos[4])
+{
+    int i;
+    for (i = 0; i < 4; i++)
+    {
+        if (palos[i].tope != 12)
+        {                 // 13 cartas, índice de la última carta es 12
+            return false; // Si cualquier palo no está lleno, no hay victoria
+        }
+    }
+    return true; // Todos los palos están llenos
+}
+
+// todo: borrar pq es para PRUEBA de CONDICION DE VICTORIA
+void inicializar_palos_para_prueba(Palo palos[4])
+{
+    int i, j;
+    for (i = 0; i < 4; i++)
+    {
+        palos[i].tope = 12; // Indica que hay 13 cartas (de 0 a 12)
+        for (j = 0; j < 13; j++)
+        {
+            palos[i].cartas[j].valor = j + 1;
+            palos[i].cartas[j].palo = i + 3; // Asignar un palo diferente a cada uno (P = 3, T = 4, R = 5, S = 6)
+            palos[i].cartas[j].estado = 2;
+            palos[i].cartas[j].oculto = 0;
+            palos[i].cartas[j].color = (i < 2) ? 1 : 0;                    // Asignar colores (negro para P y T, rojo para R y S)
+            sprintf(palos[i].cartas[j].impresion, "%d%c", j + 1, 'P' + i); // P, T, R, S
+        }
     }
 }
 
@@ -770,7 +821,7 @@ void proceso()
     {
         inicializar_mazo_ordenado(&palos[i]);
     }
-
+    inicializar_palos_para_prueba(palos); // todo: borrar esto pq es para prueba noma
     juego(Mazo, Mazo_desordenado, tablero, palos);
 }
 
