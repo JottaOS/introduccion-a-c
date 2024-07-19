@@ -7,10 +7,10 @@
 1. [x] Lógica para ocultar y desocultar cartas
 1. [x] Lógica para mover cartas
 1. [x] Descubrir cartas del mazo desordenado
-1. [ ] Corregir cartar repetidas en mazo desordenado
+1. [x] Corregir cartar repetidas en mazo desordenado
 1. [ ] Lógica para stackear las pilas de mazos ordenados
 1. [x] Validar movimiento tablero-tablero
-1. [ ] Validar movimiento mazo-tablero
+1. [x] Validar movimiento mazo-tablero
 1. [ ] Validar movimiento palo-tablero
 1. [ ] Validar movimiento tablero-palo
 1. [ ] Validar movimiento mazo-palo
