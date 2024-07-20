@@ -173,6 +173,23 @@ char letra(int n)
     return l;
 }
 
+char letra_palo(int palo)
+{
+    switch (palo)
+    {
+    case 3:
+        return 'P'; // Picas
+    case 4:
+        return 'C'; // Corazones
+    case 5:
+        return 'T'; // Tréboles
+    case 6:
+        return 'D'; // Diamantes
+    default:
+        return '?'; // Valor desconocido
+    }
+}
+
 void cargar_mazo(Carta Mazo[])
 {
     int i, j, c = 0;
@@ -197,11 +214,11 @@ void cargar_mazo(Carta Mazo[])
 
             if (j == 1 || (j >= 11))
             {
-                sprintf(Mazo[c].impresion, "%c%c", letra(j), i);
+                sprintf(Mazo[c].impresion, "%c%c", letra(j), letra_palo(i));
             }
             else
             {
-                sprintf(Mazo[c].impresion, "%d%c", j, i);
+                sprintf(Mazo[c].impresion, "%d%c", j, letra_palo(i));
             }
 
             c++;
@@ -729,7 +746,7 @@ void imprimir_carta_log(FILE *f, Carta carta)
     fprintf(f, "%-8s", carta.impresion);
 }
 
-void imprimir_tablero_log(FILE *f, Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo)
+void imprimir_tablero_log(FILE *f, Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo, Palo palos[4])
 {
     int i, j;
 
@@ -739,6 +756,18 @@ void imprimir_tablero_log(FILE *f, Carta tablero[7][19], Carta mazo_desordenado[
     {
         imprimir_carta_log(f, mazo_desordenado[indice_mazo]);
     }
+
+    printf(" \t");
+    for (i = 0; i < 4; i++)
+    {
+        Carta tope_palo;
+        obtener_tope_palo(&tope_palo, palos, i);
+        if (tope_palo.valor != -1)
+            imprimir_carta_log(f, tope_palo);
+        else
+            fprintf(f, "-\t");
+    }
+
     fprintf(f, "\n\n");
     fprintf(f, "   A       B       C       D       E       F       G\n");
 
@@ -761,13 +790,13 @@ void imprimir_tablero_log(FILE *f, Carta tablero[7][19], Carta mazo_desordenado[
     fprintf(f, "\n\n\n");
 }
 
-void escribir_log(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo, int nro_jugada)
+void escribir_log(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_mazo, int nro_jugada, Palo palos[4])
 {
     FILE *logfile = fopen("log.txt", "a");
     if (logfile != NULL)
     {
         fprintf(logfile, "Jugada Nro: %d\n", nro_jugada);
-        imprimir_tablero_log(logfile, tablero, mazo_desordenado, indice_mazo);
+        imprimir_tablero_log(logfile, tablero, mazo_desordenado, indice_mazo, palos);
         fclose(logfile);
     }
     else
@@ -805,7 +834,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
     {
         debug_mazo_desordenado(Mazo_desordenado);
         nro_jugada++;
-        escribir_log(tablero, Mazo_desordenado, indice_mazo, nro_jugada);
+        escribir_log(tablero, Mazo_desordenado, indice_mazo, nro_jugada, palos);
         capturar(string);
         system("cls");
         if (!validar_ingreso(string))
@@ -918,11 +947,10 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
             }
         }
 
-        // printf("indice mazo %d\n", indice_mazo);
-        // imprimir_accion(string);
+        imprimir_accion(string);
         if (verificar_victoria(palos))
         {
-            printf("FELICIDADES!! GANASTE!!!!\n");
+            printf("\n\nFELICIDADES!! GANASTE!!!! aplausos...\n");
             break;
         }
         printf("\n");
