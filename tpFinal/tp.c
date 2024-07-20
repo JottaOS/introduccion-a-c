@@ -173,7 +173,7 @@ void cargar_mazo(Carta Mazo[])
             Mazo[c].valor = j;
             Mazo[c].palo = i;
             Mazo[c].estado = 0;
-            Mazo[c].oculto = 0;
+            Mazo[c].oculto = 1;
 
             if (i <= 4)
             {
@@ -228,14 +228,16 @@ void cargar_tablero(Carta Mazo_desordenado[52], Carta tablero[7][19])
             while (Mazo_desordenado[c].estado == 2)
                 c++;
             tablero[i][j] = Mazo_desordenado[c];
-            tablero[i][j].oculto = (j == i) ? 0 : 0;
+            tablero[i][j].oculto = (j == i) ? 0 : 1;
             Mazo_desordenado[c].estado = 2;
             c++;
         }
         for (j = i + 1; j < 19; j++)
         {
-            tablero[i][j].valor = -1;
-            tablero[i][j].color = -1;
+            Carta carta_vacia;
+            carta_vacia.valor = -1;
+            carta_vacia.color = -1;
+            tablero[i][j] = carta_vacia;
         }
     }
 }
@@ -365,6 +367,7 @@ InfoMovimiento obtener_info_movimiento(char *string, Carta tablero[7][19], Carta
     if (primer_caracter == 'M')
     {
         info.carta_origen = mazo_desordenado[indice_mazo];
+        info.origen[1] = -1;
         if (info.tipo_movimiento == 'T')
         {
             info.destino[0] = posicion_destino - 1;
@@ -382,6 +385,7 @@ InfoMovimiento obtener_info_movimiento(char *string, Carta tablero[7][19], Carta
                                  : -1;
 
             info.destino[0] = indice_palo;
+            info.destino[1] = -1;
             obtener_tope_palo(&info.carta_destino, palos, indice_palo);
         }
         return info;
@@ -414,6 +418,7 @@ InfoMovimiento obtener_info_movimiento(char *string, Carta tablero[7][19], Carta
                                  : -1;
 
             info.destino[0] = indice_palo;
+            info.destino[1] = -1;
             obtener_tope_palo(&info.carta_destino, palos, indice_palo);
         }
         return info;
@@ -574,11 +579,30 @@ void capturar(char string[])
     getchar();
 }
 
-int validar_movimiento_palo(InfoMovimiento *movimiento, Palo palos[4])
+int validar_movimiento_palo(InfoMovimiento *movimiento, Palo palos[4], Carta tablero[7][19])
 {
     // validar movimiento de palo
     int indice_palo = movimiento->destino[0];
     Palo palo = palos[indice_palo];
+
+    // validar si la carta está oculta
+    if (movimiento->carta_origen.oculto == 1)
+    {
+        printf("La carta esta oculta. No se puede mover\n");
+        return 0;
+    }
+
+    if (movimiento->origen[1] != -1)
+    {
+        Carta carta_abajo = tablero[movimiento->origen[1]][movimiento->origen[0] + 1];
+
+        printf("Valor de la carta de abajo: %d\n", carta_abajo.valor);
+        if (carta_abajo.valor != -1)
+        {
+            printf("No se puede mover la carta al palo porque tiene otras cartas debajo\n");
+            return 0;
+        }
+    }
 
     // validar el símbolo si ya existen cartas en el palo
     if (palo.tope != -1)
@@ -807,7 +831,7 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
             }
             else
             {
-                if (!validar_movimiento_palo(&info_movimiento, palos))
+                if (!validar_movimiento_palo(&info_movimiento, palos, tablero))
                 {
                     printf("El movimiento %s no es valido.\n\n", string);
                     imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
