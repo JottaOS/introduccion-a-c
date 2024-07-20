@@ -39,6 +39,19 @@ void inicializar_mazo_ordenado(Palo *mazo)
     mazo->tope = -1;
 }
 
+void imprimir_carta(Carta carta)
+{
+    if (carta.oculto == 1)
+    {
+        printf("#\t");
+    }
+    else
+    {
+        char *color = carta.color == 0 ? RED : BLK;
+        printf("%s%s%s\t", color, carta.impresion, COLOR_RESET);
+    }
+}
+
 void obtener_tope_palo(Carta *carta_tope, Palo palos[4], int indice)
 {
     Palo palo = palos[indice];
@@ -77,13 +90,21 @@ void mover_tablero_a_ordenado(Carta tablero[7][19], int col, int fila, Palo *maz
 {
     if (tablero[col][fila].valor != -1)
     {
-        mazo_ordenado->cartas[++(mazo_ordenado->tope)] = tablero[col][fila];
+        ++(mazo_ordenado->tope);                                         // Incrementar tope para el nuevo elemento
+        mazo_ordenado->cartas[mazo_ordenado->tope] = tablero[col][fila]; // Asignar la carta
+
+        // Limpiar la posición del tablero
         tablero[col][fila].valor = -1;
-        mazo_ordenado->cartas[mazo_ordenado->tope].estado = 2;
+        tablero[col][fila].estado = 0; // O cualquier otro valor que denote un espacio vacío
+
+        // Si hay una carta debajo, hacerla visible
         if (fila > 0 && tablero[col][fila - 1].valor != -1)
         {
             tablero[col][fila - 1].oculto = 0;
         }
+
+        printf("carta movida al palo: ");
+        imprimir_carta(mazo_ordenado->cartas[mazo_ordenado->tope]);
     }
 }
 
@@ -152,7 +173,7 @@ void cargar_mazo(Carta Mazo[])
             Mazo[c].valor = j;
             Mazo[c].palo = i;
             Mazo[c].estado = 0;
-            Mazo[c].oculto = 1;
+            Mazo[c].oculto = 0;
 
             if (i <= 4)
             {
@@ -197,19 +218,6 @@ void mezclar(Carta Mazo[], Carta Mazo_desordenado[])
     }
 }
 
-void imprimir_carta(Carta carta)
-{
-    if (carta.oculto == 1)
-    {
-        printf("#\t");
-    }
-    else
-    {
-        char *color = carta.color == 0 ? RED : BLK;
-        printf("%s%s%s\t", color, carta.impresion, COLOR_RESET);
-    }
-}
-
 void cargar_tablero(Carta Mazo_desordenado[52], Carta tablero[7][19])
 {
     int i, j, c = 0;
@@ -220,7 +228,7 @@ void cargar_tablero(Carta Mazo_desordenado[52], Carta tablero[7][19])
             while (Mazo_desordenado[c].estado == 2)
                 c++;
             tablero[i][j] = Mazo_desordenado[c];
-            tablero[i][j].oculto = (j == i) ? 0 : 1;
+            tablero[i][j].oculto = (j == i) ? 0 : 0;
             Mazo_desordenado[c].estado = 2;
             c++;
         }
@@ -352,17 +360,30 @@ InfoMovimiento obtener_info_movimiento(char *string, Carta tablero[7][19], Carta
             info.tipo_movimiento = 'T';
         }
     }
-
-    int fila = 0, columna = 0;
+    int fila = 0, columna = 0, indice_palo;
 
     if (primer_caracter == 'M')
     {
-        // todo: corregir esto para incluir el caso de M a Palo
         info.carta_origen = mazo_desordenado[indice_mazo];
-        info.destino[0] = posicion_destino - 1;
-        info.destino[1] = destino - 'A';
+        if (info.tipo_movimiento == 'T')
+        {
+            info.destino[0] = posicion_destino - 1;
+            info.destino[1] = destino - 'A';
 
-        info.carta_destino = tablero[info.destino[1]][info.destino[0]];
+            info.carta_destino = tablero[info.destino[1]][info.destino[0]];
+        }
+        else
+        {
+            indice_palo =
+                destino == 'P'   ? 0
+                : destino == 'T' ? 1
+                : destino == 'R' ? 2
+                : destino == 'S' ? 3
+                                 : -1;
+
+            info.destino[0] = indice_palo;
+            obtener_tope_palo(&info.carta_destino, palos, indice_palo);
+        }
         return info;
     }
 
@@ -375,13 +396,28 @@ InfoMovimiento obtener_info_movimiento(char *string, Carta tablero[7][19], Carta
         info.origen[0] = fila;
         info.origen[1] = columna;
 
-        info.destino[0] = posicion_destino - 1;
-        info.destino[1] = destino - 'A';
+        if (info.tipo_movimiento == 'T')
+        {
 
-        info.carta_destino = tablero[info.destino[1]][info.destino[0]];
+            info.destino[0] = posicion_destino - 1;
+            info.destino[1] = destino - 'A';
+
+            info.carta_destino = tablero[info.destino[1]][info.destino[0]];
+        }
+        else
+        {
+            indice_palo =
+                destino == 'P'   ? 0
+                : destino == 'T' ? 1
+                : destino == 'R' ? 2
+                : destino == 'S' ? 3
+                                 : -1;
+
+            info.destino[0] = indice_palo;
+            obtener_tope_palo(&info.carta_destino, palos, indice_palo);
+        }
         return info;
     }
-
     /* todo: corregir despues
         int indice_palo =
             primer_caracter == 'P'   ? 0
@@ -538,6 +574,34 @@ void capturar(char string[])
     getchar();
 }
 
+int validar_movimiento_palo(InfoMovimiento *movimiento, Palo palos[4])
+{
+    // validar movimiento de palo
+    int indice_palo = movimiento->destino[0];
+    Palo palo = palos[indice_palo];
+
+    // validar el símbolo si ya existen cartas en el palo
+    if (palo.tope != -1)
+    {
+        Carta carta_tope;
+        obtener_tope_palo(&carta_tope, palos, indice_palo);
+        if (carta_tope.palo != movimiento->carta_origen.palo)
+        {
+            printf("Las cartas deben ser del mismo palo\n");
+            return 0;
+        }
+    }
+
+    // validar el valor de la carta
+    if (palo.tope != movimiento->carta_origen.valor - 2)
+    {
+        printf("El valor del tope del palo debe ser %d pero es %d\n", movimiento->carta_origen.valor - 2, palo.tope);
+        return 0;
+    }
+
+    return 1;
+}
+
 int validar_movimiento_tablero(InfoMovimiento *movimiento, Carta tablero[7][19])
 {
 
@@ -677,6 +741,18 @@ void escribir_log(Carta tablero[7][19], Carta mazo_desordenado[52], int indice_m
     }
 }
 
+bool verificar_victoria(Palo palos[4])
+{
+    int i;
+    for (i = 0; i < 4; i++)
+    {
+        if (palos[i].tope != 12)
+        {                 // 13 cartas, índice de la última carta es 12
+            return false; // Si cualquier palo no está lleno, no hay victoria
+        }
+    }
+    return true; // Todos los palos están llenos
+}
 int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo palos[4])
 {
     char string[8];
@@ -720,17 +796,36 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
         {
             InfoMovimiento info_movimiento = obtener_info_movimiento(string, tablero, Mazo_desordenado, palos, indice_mazo);
             imprimirInfoMovimiento(&info_movimiento); // todo: esta funcion es solo de debug y se borra antes de entregar
-            if (!validar_movimiento_tablero(&info_movimiento, tablero))
+            if (info_movimiento.tipo_movimiento == 'T')
             {
-                printf("El movimiento %s no es valido.\n\n", string);
-                imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
-                continue;
+                if (!validar_movimiento_tablero(&info_movimiento, tablero))
+                {
+                    printf("El movimiento %s no es valido.\n\n", string);
+                    imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
+                    continue;
+                }
             }
+            else
+            {
+                if (!validar_movimiento_palo(&info_movimiento, palos))
+                {
+                    printf("El movimiento %s no es valido.\n\n", string);
+                    imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
+                    continue;
+                }
+            }
+
             if (string[0] == 'M' && string[1] == '-')
             {
                 if (string[2] == 'P' || string[2] == 'T' || string[2] == 'R' || string[2] == 'S')
                 {
-                    mover_mazo_a_ordenado(Mazo_desordenado, &indice_mazo, &palos[string[2] - 'P']);
+                    int indice_palo =
+                        string[2] == 'P'   ? 0
+                        : string[2] == 'T' ? 1
+                        : string[2] == 'R' ? 2
+                                           : 3;
+
+                    mover_mazo_a_ordenado(Mazo_desordenado, &indice_mazo, &palos[indice_palo]);
                 }
                 else
                 {
@@ -747,7 +842,12 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
                 {
                     if (string[3] == 'P' || string[3] == 'T' || string[3] == 'R' || string[3] == 'S')
                     {
-                        mover_tablero_a_ordenado(tablero, col_origen, fila_origen, &palos[string[3] - 'P']);
+                        int indice_palo =
+                            string[3] == 'P'   ? 0
+                            : string[3] == 'T' ? 1
+                            : string[3] == 'R' ? 2
+                                               : 3;
+                        mover_tablero_a_ordenado(tablero, col_origen, fila_origen, &palos[indice_palo]);
                     }
                     else
                     {
@@ -768,22 +868,14 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
 
         // printf("indice mazo %d\n", indice_mazo);
         // imprimir_accion(string);
+        if (verificar_victoria(palos))
+        {
+            printf("FELICIDADES!! GANASTE!!!!\n");
+            break;
+        }
         printf("\n");
         imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
     }
-}
-
-bool verificar_victoria(Palo palos[4])
-{
-    int i;
-    for (i = 0; i < 4; i++)
-    {
-        if (palos[i].tope != 12)
-        {                 // 13 cartas, índice de la última carta es 12
-            return false; // Si cualquier palo no está lleno, no hay victoria
-        }
-    }
-    return true; // Todos los palos están llenos
 }
 
 // todo: borrar pq es para PRUEBA de CONDICION DE VICTORIA
@@ -821,7 +913,6 @@ void proceso()
     {
         inicializar_mazo_ordenado(&palos[i]);
     }
-    inicializar_palos_para_prueba(palos); // todo: borrar esto pq es para prueba noma
     juego(Mazo, Mazo_desordenado, tablero, palos);
 }
 
