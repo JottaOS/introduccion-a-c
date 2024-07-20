@@ -112,9 +112,20 @@ void mover_tablero_a_tablero(Carta tablero[7][19], int col_origen, int fila_orig
 {
     if (tablero[col_origen][fila_origen].valor != -1)
     {
-        tablero[col_destino][fila_destino] = tablero[col_origen][fila_origen];
-        tablero[col_origen][fila_origen].valor = -1;
+        int i = fila_origen;
+        int j = fila_destino;
 
+        // Mover todas las cartas desde fila_origen hacia abajo
+        while (i < 19 && tablero[col_origen][i].valor != -1)
+        {
+            tablero[col_destino][j] = tablero[col_origen][i];
+            tablero[col_origen][i].valor = -1;
+
+            i++;
+            j++;
+        }
+
+        // Descubrir la carta que queda en la parte superior de la columna de origen, si existe
         if (fila_origen > 0 && tablero[col_origen][fila_origen - 1].valor != -1)
         {
             tablero[col_origen][fila_origen - 1].oculto = 0;
@@ -802,6 +813,23 @@ int juego(Carta Mazo[52], Carta Mazo_desordenado[52], Carta tablero[7][19], Palo
             printf("El movimiento %s no es valido.\n\n", string);
             imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
             continue;
+        }
+
+        if (string[0] == 'M')
+        {
+            int cartas_disponibles = 0, i;
+            for (i = 0; i < 52; i++)
+            {
+                if (Mazo_desordenado[i].estado != 2)
+                    cartas_disponibles++;
+            }
+
+            if (cartas_disponibles == 0)
+            {
+                printf("Ya no hay cartas en el mazo desordenado\n");
+                imprimir_tablero(tablero, Mazo_desordenado, indice_mazo, palos);
+                continue;
+            }
         }
 
         if (strcmp(string, "M") == 0)
