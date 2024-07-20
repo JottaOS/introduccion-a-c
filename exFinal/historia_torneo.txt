@@ -1,0 +1,1125 @@
+1950 1 Costa Rica 18 Uruguay 14 Costa Rica
+1950 1 Panama 8 Honduras 20 Honduras
+1950 1 Nicaragua 7 Guatemala 8 Guatemala
+1950 1 Bolivia 9 Venezuela 0 Bolivia
+1950 1 Mexico 8 Argentina 16 Argentina
+1950 1 Republica Dominicana 14 Chile 6 Republica Dominicana
+1950 1 Colombia 11 Brasil 20 Brasil
+1950 1 Peru 9 Paraguay 4 Peru
+1950 2 Costa Rica 13 Honduras 1 Costa Rica
+1950 2 Guatemala 1 Bolivia 14 Bolivia
+1950 2 Argentina 2 Republica Dominicana 20 Republica Dominicana
+1950 2 Brasil 13 Peru 11 Brasil
+1950 3 Costa Rica 8 Bolivia 17 Bolivia
+1950 3 Republica Dominicana 0 Brasil 12 Brasil
+1950 4 Bolivia 16 Brasil 4 Bolivia
+1951 1 Venezuela 1 Paraguay 10 Paraguay
+1951 1 Ecuador 5 Mexico 7 Mexico
+1951 1 Colombia 14 El Salvador 19 El Salvador
+1951 1 Honduras 20 Peru 3 Honduras
+1951 1 Argentina 3 Nicaragua 12 Nicaragua
+1951 1 Costa Rica 15 Brasil 17 Brasil
+1951 1 Bolivia 4 Panama 13 Panama
+1951 1 Uruguay 7 Cuba 2 Uruguay
+1951 2 Paraguay 13 Mexico 4 Paraguay
+1951 2 El Salvador 6 Honduras 7 Honduras
+1951 2 Nicaragua 2 Brasil 15 Brasil
+1951 2 Panama 1 Uruguay 8 Uruguay
+1951 3 Paraguay 12 Honduras 18 Honduras
+1951 3 Brasil 12 Uruguay 5 Brasil
+1951 4 Honduras 16 Brasil 3 Honduras
+1952 1 Brasil 8 Panama 11 Panama
+1952 1 Ecuador 6 Bolivia 8 Bolivia
+1952 1 Venezuela 14 Argentina 2 Venezuela
+1952 1 Honduras 20 Chile 12 Honduras
+1952 1 Peru 6 Republica Dominicana 12 Republica Dominicana
+1952 1 Cuba 8 Guatemala 9 Guatemala
+1952 1 Costa Rica 13 Uruguay 2 Costa Rica
+1952 1 Mexico 16 El Salvador 0 Mexico
+1952 2 Panama 2 Bolivia 1 Panama
+1952 2 Venezuela 4 Honduras 2 Venezuela
+1952 2 Republica Dominicana 2 Guatemala 11 Guatemala
+1952 2 Costa Rica 12 Mexico 17 Mexico
+1952 3 Panama 4 Venezuela 20 Venezuela
+1952 3 Guatemala 17 Mexico 10 Guatemala
+1952 4 Venezuela 13 Guatemala 7 Venezuela
+1953 1 Uruguay 3 Cuba 18 Cuba
+1953 1 Brasil 18 El Salvador 9 Brasil
+1953 1 Peru 5 Honduras 18 Honduras
+1953 1 Argentina 2 Paraguay 12 Paraguay
+1953 1 Chile 12 Nicaragua 0 Chile
+1953 1 Panama 11 Costa Rica 17 Costa Rica
+1953 1 Ecuador 15 Bolivia 20 Bolivia
+1953 1 Guatemala 14 Republica Dominicana 7 Guatemala
+1953 2 Cuba 17 Brasil 11 Cuba
+1953 2 Honduras 19 Paraguay 14 Honduras
+1953 2 Chile 16 Costa Rica 15 Chile
+1953 2 Bolivia 5 Guatemala 18 Guatemala
+1953 3 Cuba 19 Honduras 1 Cuba
+1953 3 Chile 9 Guatemala 20 Guatemala
+1953 4 Cuba 11 Guatemala 15 Guatemala
+1954 1 Panama 20 Chile 13 Panama
+1954 1 Brasil 13 Ecuador 1 Brasil
+1954 1 Uruguay 7 Honduras 6 Uruguay
+1954 1 Peru 8 Costa Rica 20 Costa Rica
+1954 1 Guatemala 18 Nicaragua 15 Guatemala
+1954 1 Argentina 18 Republica Dominicana 15 Argentina
+1954 1 Paraguay 8 Colombia 17 Colombia
+1954 1 Venezuela 10 Mexico 13 Mexico
+1954 2 Panama 19 Brasil 15 Panama
+1954 2 Uruguay 17 Costa Rica 15 Uruguay
+1954 2 Guatemala 0 Argentina 7 Argentina
+1954 2 Colombia 10 Mexico 4 Colombia
+1954 3 Panama 17 Uruguay 20 Uruguay
+1954 3 Argentina 6 Colombia 14 Colombia
+1954 4 Uruguay 15 Colombia 16 Colombia
+1955 1 Venezuela 0 Mexico 5 Mexico
+1955 1 Uruguay 11 Nicaragua 5 Uruguay
+1955 1 Argentina 16 Guatemala 18 Guatemala
+1955 1 Ecuador 14 Chile 18 Chile
+1955 1 Cuba 4 Colombia 7 Colombia
+1955 1 Peru 1 Honduras 6 Honduras
+1955 1 El Salvador 7 Paraguay 11 Paraguay
+1955 1 Brasil 7 Bolivia 11 Bolivia
+1955 2 Mexico 0 Uruguay 20 Uruguay
+1955 2 Guatemala 6 Chile 0 Guatemala
+1955 2 Colombia 15 Honduras 9 Colombia
+1955 2 Paraguay 2 Bolivia 7 Bolivia
+1955 3 Uruguay 12 Guatemala 6 Uruguay
+1955 3 Colombia 14 Bolivia 3 Colombia
+1955 4 Uruguay 16 Colombia 7 Uruguay
+1956 1 Uruguay 0 Paraguay 15 Paraguay
+1956 1 Ecuador 14 Guatemala 1 Ecuador
+1956 1 Venezuela 5 Honduras 20 Honduras
+1956 1 Brasil 15 Mexico 9 Brasil
+1956 1 Panama 1 El Salvador 3 El Salvador
+1956 1 Peru 18 Cuba 12 Peru
+1956 1 Costa Rica 16 Bolivia 2 Costa Rica
+1956 1 Nicaragua 4 Chile 1 Nicaragua
+1956 2 Paraguay 2 Ecuador 6 Ecuador
+1956 2 Honduras 13 Brasil 3 Honduras
+1956 2 El Salvador 10 Peru 20 Peru
+1956 2 Costa Rica 5 Nicaragua 11 Nicaragua
+1956 3 Ecuador 15 Honduras 20 Honduras
+1956 3 Peru 9 Nicaragua 18 Nicaragua
+1956 4 Honduras 7 Nicaragua 19 Nicaragua
+1957 1 Mexico 19 Argentina 5 Mexico
+1957 1 Honduras 10 Peru 4 Honduras
+1957 1 El Salvador 19 Venezuela 12 El Salvador
+1957 1 Costa Rica 10 Colombia 19 Colombia
+1957 1 Cuba 8 Bolivia 14 Bolivia
+1957 1 Ecuador 6 Brasil 17 Brasil
+1957 1 Guatemala 8 Uruguay 12 Uruguay
+1957 1 Chile 3 Paraguay 9 Paraguay
+1957 2 Mexico 13 Honduras 17 Honduras
+1957 2 El Salvador 6 Colombia 4 El Salvador
+1957 2 Bolivia 20 Brasil 15 Bolivia
+1957 2 Uruguay 0 Paraguay 18 Paraguay
+1957 3 Honduras 5 El Salvador 13 El Salvador
+1957 3 Bolivia 0 Paraguay 2 Paraguay
+1957 4 El Salvador 8 Paraguay 7 El Salvador
+1958 1 Chile 1 Paraguay 10 Paraguay
+1958 1 Colombia 3 Honduras 20 Honduras
+1958 1 Republica Dominicana 18 Uruguay 6 Republica Dominicana
+1958 1 Bolivia 20 Ecuador 17 Bolivia
+1958 1 Nicaragua 15 Brasil 11 Nicaragua
+1958 1 Mexico 1 Costa Rica 4 Costa Rica
+1958 1 Argentina 6 Cuba 20 Cuba
+1958 1 Guatemala 2 Peru 12 Peru
+1958 2 Paraguay 12 Honduras 13 Honduras
+1958 2 Republica Dominicana 16 Bolivia 7 Republica Dominicana
+1958 2 Nicaragua 3 Costa Rica 13 Costa Rica
+1958 2 Cuba 19 Peru 16 Cuba
+1958 3 Honduras 3 Republica Dominicana 1 Honduras
+1958 3 Costa Rica 10 Cuba 6 Costa Rica
+1958 4 Honduras 1 Costa Rica 0 Honduras
+1959 1 Nicaragua 11 Ecuador 18 Ecuador
+1959 1 Uruguay 7 Chile 4 Uruguay
+1959 1 Venezuela 7 Honduras 15 Honduras
+1959 1 Cuba 1 Costa Rica 17 Costa Rica
+1959 1 Guatemala 1 Argentina 8 Argentina
+1959 1 El Salvador 3 Republica Dominicana 6 Republica Dominicana
+1959 1 Panama 1 Peru 11 Peru
+1959 1 Bolivia 8 Paraguay 6 Bolivia
+1959 2 Ecuador 12 Uruguay 16 Uruguay
+1959 2 Honduras 19 Costa Rica 9 Honduras
+1959 2 Argentina 3 Republica Dominicana 18 Republica Dominicana
+1959 2 Peru 14 Bolivia 19 Bolivia
+1959 3 Uruguay 10 Honduras 3 Uruguay
+1959 3 Republica Dominicana 1 Bolivia 7 Bolivia
+1959 4 Uruguay 11 Bolivia 5 Uruguay
+1960 1 Ecuador 19 Cuba 7 Ecuador
+1960 1 Honduras 12 Brasil 15 Brasil
+1960 1 Venezuela 5 Bolivia 18 Bolivia
+1960 1 Republica Dominicana 16 Nicaragua 12 Republica Dominicana
+1960 1 Peru 8 Paraguay 12 Paraguay
+1960 1 El Salvador 3 Costa Rica 15 Costa Rica
+1960 1 Uruguay 5 Colombia 10 Colombia
+1960 1 Argentina 11 Mexico 16 Mexico
+1960 2 Ecuador 15 Brasil 14 Ecuador
+1960 2 Bolivia 7 Republica Dominicana 14 Republica Dominicana
+1960 2 Paraguay 10 Costa Rica 14 Costa Rica
+1960 2 Colombia 14 Mexico 10 Colombia
+1960 3 Ecuador 9 Republica Dominicana 12 Republica Dominicana
+1960 3 Costa Rica 12 Colombia 3 Costa Rica
+1960 4 Republica Dominicana 1 Costa Rica 16 Costa Rica
+1961 1 Costa Rica 10 Peru 17 Peru
+1961 1 Republica Dominicana 15 Argentina 16 Argentina
+1961 1 Nicaragua 11 Panama 20 Panama
+1961 1 Chile 19 Colombia 13 Chile
+1961 1 Guatemala 15 El Salvador 16 El Salvador
+1961 1 Uruguay 6 Venezuela 2 Uruguay
+1961 1 Honduras 17 Bolivia 7 Honduras
+1961 1 Mexico 0 Brasil 5 Brasil
+1961 2 Peru 17 Argentina 19 Argentina
+1961 2 Panama 10 Chile 13 Chile
+1961 2 El Salvador 11 Uruguay 0 El Salvador
+1961 2 Honduras 3 Brasil 6 Brasil
+1961 3 Argentina 12 Chile 7 Argentina
+1961 3 El Salvador 6 Brasil 17 Brasil
+1961 4 Argentina 15 Brasil 5 Argentina
+1962 1 Guatemala 9 Panama 8 Guatemala
+1962 1 Mexico 15 Republica Dominicana 13 Mexico
+1962 1 Peru 5 Colombia 1 Peru
+1962 1 Nicaragua 11 Cuba 1 Nicaragua
+1962 1 Uruguay 15 Venezuela 16 Venezuela
+1962 1 Honduras 18 Paraguay 15 Honduras
+1962 1 Costa Rica 6 El Salvador 14 El Salvador
+1962 1 Chile 15 Argentina 8 Chile
+1962 2 Guatemala 15 Mexico 7 Guatemala
+1962 2 Peru 8 Nicaragua 11 Nicaragua
+1962 2 Venezuela 0 Honduras 19 Honduras
+1962 2 El Salvador 7 Chile 9 Chile
+1962 3 Guatemala 8 Nicaragua 15 Nicaragua
+1962 3 Honduras 13 Chile 16 Chile
+1962 4 Nicaragua 3 Chile 4 Chile
+1963 1 Bolivia 9 Brasil 13 Brasil
+1963 1 Peru 1 Costa Rica 10 Costa Rica
+1963 1 Paraguay 10 El Salvador 13 El Salvador
+1963 1 Uruguay 14 Chile 5 Uruguay
+1963 1 Argentina 5 Colombia 17 Colombia
+1963 1 Republica Dominicana 14 Ecuador 6 Republica Dominicana
+1963 1 Cuba 19 Nicaragua 6 Cuba
+1963 1 Honduras 11 Panama 0 Honduras
+1963 2 Brasil 1 Costa Rica 16 Costa Rica
+1963 2 El Salvador 7 Uruguay 5 El Salvador
+1963 2 Colombia 0 Republica Dominicana 7 Republica Dominicana
+1963 2 Cuba 1 Honduras 20 Honduras
+1963 3 Costa Rica 6 El Salvador 16 El Salvador
+1963 3 Republica Dominicana 12 Honduras 8 Republica Dominicana
+1963 4 El Salvador 18 Republica Dominicana 5 El Salvador
+1964 1 Colombia 10 Republica Dominicana 8 Colombia
+1964 1 Bolivia 13 Cuba 16 Cuba
+1964 1 Ecuador 19 El Salvador 18 Ecuador
+1964 1 Brasil 5 Panama 3 Brasil
+1964 1 Honduras 0 Venezuela 8 Venezuela
+1964 1 Chile 7 Costa Rica 11 Costa Rica
+1964 1 Nicaragua 2 Argentina 9 Argentina
+1964 1 Peru 0 Paraguay 6 Paraguay
+1964 2 Colombia 0 Cuba 5 Cuba
+1964 2 Ecuador 0 Brasil 5 Brasil
+1964 2 Venezuela 18 Costa Rica 4 Venezuela
+1964 2 Argentina 20 Paraguay 16 Argentina
+1964 3 Cuba 12 Brasil 17 Brasil
+1964 3 Venezuela 20 Argentina 5 Venezuela
+1964 4 Brasil 3 Venezuela 11 Venezuela
+1965 1 El Salvador 7 Honduras 17 Honduras
+1965 1 Bolivia 3 Nicaragua 10 Nicaragua
+1965 1 Panama 4 Brasil 3 Panama
+1965 1 Ecuador 14 Costa Rica 8 Ecuador
+1965 1 Chile 7 Argentina 14 Argentina
+1965 1 Colombia 17 Mexico 7 Colombia
+1965 1 Paraguay 9 Peru 10 Peru
+1965 1 Cuba 16 Uruguay 15 Cuba
+1965 2 Honduras 17 Nicaragua 16 Honduras
+1965 2 Panama 9 Ecuador 13 Ecuador
+1965 2 Argentina 6 Colombia 1 Argentina
+1965 2 Peru 9 Cuba 17 Cuba
+1965 3 Honduras 0 Ecuador 7 Ecuador
+1965 3 Argentina 15 Cuba 3 Argentina
+1965 4 Ecuador 20 Argentina 12 Ecuador
+1966 1 Chile 16 Panama 19 Panama
+1966 1 Honduras 14 Nicaragua 11 Honduras
+1966 1 Uruguay 0 Guatemala 9 Guatemala
+1966 1 Argentina 0 Brasil 12 Brasil
+1966 1 Venezuela 14 Ecuador 1 Venezuela
+1966 1 Colombia 4 Paraguay 18 Paraguay
+1966 1 Mexico 14 Bolivia 5 Mexico
+1966 1 El Salvador 2 Costa Rica 9 Costa Rica
+1966 2 Panama 5 Honduras 10 Honduras
+1966 2 Guatemala 17 Brasil 7 Guatemala
+1966 2 Venezuela 14 Paraguay 13 Venezuela
+1966 2 Mexico 0 Costa Rica 3 Costa Rica
+1966 3 Honduras 19 Guatemala 1 Honduras
+1966 3 Venezuela 4 Costa Rica 3 Venezuela
+1966 4 Honduras 18 Venezuela 0 Honduras
+1967 1 Chile 12 Panama 18 Panama
+1967 1 El Salvador 12 Cuba 2 El Salvador
+1967 1 Costa Rica 4 Republica Dominicana 17 Republica Dominicana
+1967 1 Uruguay 19 Nicaragua 3 Uruguay
+1967 1 Honduras 17 Paraguay 8 Honduras
+1967 1 Mexico 7 Brasil 11 Brasil
+1967 1 Guatemala 10 Venezuela 16 Venezuela
+1967 1 Argentina 17 Bolivia 6 Argentina
+1967 2 Panama 9 El Salvador 1 Panama
+1967 2 Republica Dominicana 8 Uruguay 10 Uruguay
+1967 2 Honduras 16 Brasil 4 Honduras
+1967 2 Venezuela 9 Argentina 4 Venezuela
+1967 3 Panama 15 Uruguay 10 Panama
+1967 3 Honduras 7 Venezuela 14 Venezuela
+1967 4 Panama 16 Venezuela 11 Panama
+1968 1 Mexico 9 Uruguay 7 Mexico
+1968 1 Argentina 6 Nicaragua 1 Argentina
+1968 1 Colombia 14 Republica Dominicana 7 Colombia
+1968 1 Ecuador 0 Paraguay 4 Paraguay
+1968 1 Costa Rica 7 El Salvador 0 Costa Rica
+1968 1 Bolivia 9 Honduras 12 Honduras
+1968 1 Brasil 20 Chile 7 Brasil
+1968 1 Peru 12 Panama 10 Peru
+1968 2 Mexico 3 Argentina 9 Argentina
+1968 2 Colombia 0 Paraguay 19 Paraguay
+1968 2 Costa Rica 12 Honduras 4 Costa Rica
+1968 2 Brasil 13 Peru 5 Brasil
+1968 3 Argentina 5 Paraguay 18 Paraguay
+1968 3 Costa Rica 13 Brasil 0 Costa Rica
+1968 4 Paraguay 13 Costa Rica 3 Paraguay
+1969 1 Republica Dominicana 17 Panama 9 Republica Dominicana
+1969 1 Mexico 4 Costa Rica 20 Costa Rica
+1969 1 Venezuela 16 Peru 11 Venezuela
+1969 1 Chile 15 Colombia 2 Chile
+1969 1 Nicaragua 14 Paraguay 20 Paraguay
+1969 1 Cuba 2 Honduras 19 Honduras
+1969 1 Brasil 10 Ecuador 2 Brasil
+1969 1 El Salvador 20 Argentina 0 El Salvador
+1969 2 Republica Dominicana 1 Costa Rica 9 Costa Rica
+1969 2 Venezuela 11 Chile 12 Chile
+1969 2 Paraguay 7 Honduras 1 Paraguay
+1969 2 Brasil 20 El Salvador 16 Brasil
+1969 3 Costa Rica 2 Chile 20 Chile
+1969 3 Paraguay 1 Brasil 0 Paraguay
+1969 4 Chile 16 Paraguay 9 Chile
+1970 1 Panama 0 Peru 5 Peru
+1970 1 Uruguay 8 Costa Rica 11 Costa Rica
+1970 1 Guatemala 16 Mexico 4 Guatemala
+1970 1 Chile 3 Republica Dominicana 4 Republica Dominicana
+1970 1 Bolivia 8 Honduras 4 Bolivia
+1970 1 Paraguay 2 Colombia 0 Paraguay
+1970 1 Venezuela 14 Argentina 13 Venezuela
+1970 1 Brasil 13 Ecuador 5 Brasil
+1970 2 Peru 18 Costa Rica 16 Peru
+1970 2 Guatemala 2 Republica Dominicana 7 Republica Dominicana
+1970 2 Bolivia 4 Paraguay 12 Paraguay
+1970 2 Venezuela 17 Brasil 13 Venezuela
+1970 3 Peru 5 Republica Dominicana 9 Republica Dominicana
+1970 3 Paraguay 2 Venezuela 14 Venezuela
+1970 4 Republica Dominicana 5 Venezuela 15 Venezuela
+1971 1 Bolivia 13 Guatemala 6 Bolivia
+1971 1 Costa Rica 19 Cuba 15 Costa Rica
+1971 1 Republica Dominicana 12 Paraguay 1 Republica Dominicana
+1971 1 Panama 15 Colombia 8 Panama
+1971 1 Ecuador 20 Chile 9 Ecuador
+1971 1 Argentina 11 Mexico 7 Argentina
+1971 1 Nicaragua 6 Venezuela 7 Venezuela
+1971 1 Honduras 6 Brasil 10 Brasil
+1971 2 Bolivia 2 Costa Rica 6 Costa Rica
+1971 2 Republica Dominicana 17 Panama 8 Republica Dominicana
+1971 2 Ecuador 8 Argentina 4 Ecuador
+1971 2 Venezuela 17 Brasil 0 Venezuela
+1971 3 Costa Rica 14 Republica Dominicana 5 Costa Rica
+1971 3 Ecuador 20 Venezuela 15 Ecuador
+1971 4 Costa Rica 5 Ecuador 6 Ecuador
+1972 1 Honduras 1 Costa Rica 19 Costa Rica
+1972 1 Paraguay 16 Bolivia 18 Bolivia
+1972 1 Argentina 9 Chile 3 Argentina
+1972 1 Panama 2 El Salvador 0 Panama
+1972 1 Guatemala 12 Uruguay 1 Guatemala
+1972 1 Cuba 5 Mexico 14 Mexico
+1972 1 Venezuela 18 Ecuador 9 Venezuela
+1972 1 Brasil 2 Republica Dominicana 3 Republica Dominicana
+1972 2 Costa Rica 2 Bolivia 10 Bolivia
+1972 2 Argentina 3 Panama 5 Panama
+1972 2 Guatemala 12 Mexico 9 Guatemala
+1972 2 Venezuela 15 Republica Dominicana 11 Venezuela
+1972 3 Bolivia 8 Panama 7 Bolivia
+1972 3 Guatemala 14 Venezuela 8 Guatemala
+1972 4 Bolivia 10 Guatemala 4 Bolivia
+1973 1 Costa Rica 5 Ecuador 3 Costa Rica
+1973 1 Nicaragua 19 Peru 11 Nicaragua
+1973 1 Honduras 11 Guatemala 15 Guatemala
+1973 1 Bolivia 7 Uruguay 15 Uruguay
+1973 1 Paraguay 10 Panama 17 Panama
+1973 1 Chile 8 Mexico 18 Mexico
+1973 1 Republica Dominicana 3 Brasil 13 Brasil
+1973 1 El Salvador 20 Cuba 4 El Salvador
+1973 2 Costa Rica 1 Nicaragua 18 Nicaragua
+1973 2 Guatemala 6 Uruguay 16 Uruguay
+1973 2 Panama 18 Mexico 6 Panama
+1973 2 Brasil 13 El Salvador 15 El Salvador
+1973 3 Nicaragua 1 Uruguay 0 Nicaragua
+1973 3 Panama 12 El Salvador 4 Panama
+1973 4 Nicaragua 2 Panama 7 Panama
+1974 1 Republica Dominicana 11 Colombia 1 Republica Dominicana
+1974 1 Guatemala 18 Mexico 0 Guatemala
+1974 1 Chile 18 Uruguay 16 Chile
+1974 1 Ecuador 4 Costa Rica 1 Ecuador
+1974 1 Honduras 9 El Salvador 2 Honduras
+1974 1 Panama 8 Nicaragua 10 Nicaragua
+1974 1 Venezuela 4 Bolivia 8 Bolivia
+1974 1 Argentina 0 Cuba 1 Cuba
+1974 2 Republica Dominicana 2 Guatemala 19 Guatemala
+1974 2 Chile 20 Ecuador 17 Chile
+1974 2 Honduras 10 Nicaragua 9 Honduras
+1974 2 Bolivia 12 Cuba 2 Bolivia
+1974 3 Guatemala 11 Chile 9 Guatemala
+1974 3 Honduras 15 Bolivia 11 Honduras
+1974 4 Guatemala 10 Honduras 17 Honduras
+1975 1 Nicaragua 1 Colombia 12 Colombia
+1975 1 Peru 3 Uruguay 6 Uruguay
+1975 1 Costa Rica 19 Honduras 17 Costa Rica
+1975 1 Guatemala 4 Brasil 1 Guatemala
+1975 1 Venezuela 13 Chile 7 Venezuela
+1975 1 Panama 1 Republica Dominicana 17 Republica Dominicana
+1975 1 El Salvador 4 Mexico 16 Mexico
+1975 1 Ecuador 2 Cuba 15 Cuba
+1975 2 Colombia 9 Uruguay 7 Colombia
+1975 2 Costa Rica 3 Guatemala 4 Guatemala
+1975 2 Venezuela 8 Republica Dominicana 10 Republica Dominicana
+1975 2 Mexico 5 Cuba 19 Cuba
+1975 3 Colombia 5 Guatemala 10 Guatemala
+1975 3 Republica Dominicana 9 Cuba 0 Republica Dominicana
+1975 4 Guatemala 1 Republica Dominicana 7 Republica Dominicana
+1976 1 Bolivia 7 Cuba 3 Bolivia
+1976 1 Mexico 20 Chile 3 Mexico
+1976 1 Honduras 1 Ecuador 9 Ecuador
+1976 1 Uruguay 15 Guatemala 17 Guatemala
+1976 1 Republica Dominicana 18 Peru 9 Republica Dominicana
+1976 1 Paraguay 8 Colombia 0 Paraguay
+1976 1 Costa Rica 20 El Salvador 11 Costa Rica
+1976 1 Panama 10 Brasil 0 Panama
+1976 2 Bolivia 13 Mexico 0 Bolivia
+1976 2 Ecuador 16 Guatemala 4 Ecuador
+1976 2 Republica Dominicana 8 Paraguay 17 Paraguay
+1976 2 Costa Rica 6 Panama 1 Costa Rica
+1976 3 Bolivia 3 Ecuador 5 Ecuador
+1976 3 Paraguay 15 Costa Rica 12 Paraguay
+1976 4 Ecuador 10 Paraguay 14 Paraguay
+1977 1 Argentina 1 El Salvador 11 El Salvador
+1977 1 Cuba 5 Nicaragua 11 Nicaragua
+1977 1 Colombia 18 Chile 1 Colombia
+1977 1 Honduras 7 Paraguay 16 Paraguay
+1977 1 Bolivia 12 Brasil 9 Bolivia
+1977 1 Uruguay 0 Panama 7 Panama
+1977 1 Republica Dominicana 0 Peru 5 Peru
+1977 1 Venezuela 10 Mexico 11 Mexico
+1977 2 El Salvador 8 Nicaragua 6 El Salvador
+1977 2 Colombia 2 Paraguay 0 Colombia
+1977 2 Bolivia 14 Panama 3 Bolivia
+1977 2 Peru 20 Mexico 16 Peru
+1977 3 El Salvador 18 Colombia 11 El Salvador
+1977 3 Bolivia 16 Peru 4 Bolivia
+1977 4 El Salvador 1 Bolivia 15 Bolivia
+1978 1 Cuba 4 Colombia 11 Colombia
+1978 1 Bolivia 14 Chile 3 Bolivia
+1978 1 Argentina 2 Uruguay 9 Uruguay
+1978 1 Ecuador 20 Costa Rica 11 Ecuador
+1978 1 Republica Dominicana 17 Panama 18 Panama
+1978 1 Guatemala 8 Peru 1 Guatemala
+1978 1 Brasil 7 Paraguay 10 Paraguay
+1978 1 El Salvador 5 Venezuela 7 Venezuela
+1978 2 Colombia 15 Bolivia 7 Colombia
+1978 2 Uruguay 15 Ecuador 16 Ecuador
+1978 2 Panama 15 Guatemala 8 Panama
+1978 2 Paraguay 6 Venezuela 4 Paraguay
+1978 3 Colombia 0 Ecuador 13 Ecuador
+1978 3 Panama 13 Paraguay 3 Panama
+1978 4 Ecuador 13 Panama 14 Panama
+1979 1 Uruguay 3 Chile 10 Chile
+1979 1 Argentina 4 Ecuador 15 Ecuador
+1979 1 Mexico 0 Bolivia 2 Bolivia
+1979 1 Peru 2 Guatemala 20 Guatemala
+1979 1 Cuba 12 Brasil 14 Brasil
+1979 1 Venezuela 20 Panama 0 Venezuela
+1979 1 Honduras 5 Nicaragua 3 Honduras
+1979 1 Colombia 3 Costa Rica 20 Costa Rica
+1979 2 Chile 18 Ecuador 4 Chile
+1979 2 Bolivia 13 Guatemala 3 Bolivia
+1979 2 Brasil 5 Venezuela 8 Venezuela
+1979 2 Honduras 9 Costa Rica 5 Honduras
+1979 3 Chile 16 Bolivia 10 Chile
+1979 3 Venezuela 7 Honduras 4 Venezuela
+1979 4 Chile 7 Venezuela 4 Chile
+1980 1 Bolivia 9 Argentina 15 Argentina
+1980 1 Cuba 1 Honduras 3 Honduras
+1980 1 El Salvador 17 Ecuador 10 El Salvador
+1980 1 Guatemala 14 Panama 20 Panama
+1980 1 Paraguay 15 Republica Dominicana 9 Paraguay
+1980 1 Uruguay 15 Venezuela 19 Venezuela
+1980 1 Mexico 19 Chile 1 Mexico
+1980 1 Brasil 3 Costa Rica 6 Costa Rica
+1980 2 Argentina 3 Honduras 16 Honduras
+1980 2 El Salvador 20 Panama 8 El Salvador
+1980 2 Paraguay 0 Venezuela 13 Venezuela
+1980 2 Mexico 12 Costa Rica 15 Costa Rica
+1980 3 Honduras 19 El Salvador 14 Honduras
+1980 3 Venezuela 11 Costa Rica 16 Costa Rica
+1980 4 Honduras 15 Costa Rica 11 Honduras
+1981 1 Republica Dominicana 15 Venezuela 9 Republica Dominicana
+1981 1 Nicaragua 6 Mexico 19 Mexico
+1981 1 Honduras 18 Argentina 7 Honduras
+1981 1 El Salvador 16 Chile 15 El Salvador
+1981 1 Uruguay 16 Guatemala 8 Uruguay
+1981 1 Peru 12 Paraguay 4 Peru
+1981 1 Ecuador 19 Colombia 20 Colombia
+1981 1 Brasil 3 Cuba 15 Cuba
+1981 2 Republica Dominicana 9 Mexico 20 Mexico
+1981 2 Honduras 10 El Salvador 11 El Salvador
+1981 2 Uruguay 6 Peru 4 Uruguay
+1981 2 Colombia 20 Cuba 14 Colombia
+1981 3 Mexico 1 El Salvador 6 El Salvador
+1981 3 Uruguay 15 Colombia 9 Uruguay
+1981 4 El Salvador 6 Uruguay 14 Uruguay
+1982 1 Panama 18 Guatemala 19 Guatemala
+1982 1 El Salvador 8 Bolivia 5 El Salvador
+1982 1 Brasil 5 Venezuela 17 Venezuela
+1982 1 Paraguay 3 Cuba 10 Cuba
+1982 1 Uruguay 17 Costa Rica 0 Uruguay
+1982 1 Mexico 3 Argentina 13 Argentina
+1982 1 Ecuador 11 Chile 15 Chile
+1982 1 Nicaragua 4 Republica Dominicana 15 Republica Dominicana
+1982 2 Guatemala 9 El Salvador 11 El Salvador
+1982 2 Venezuela 13 Cuba 19 Cuba
+1982 2 Uruguay 0 Argentina 19 Argentina
+1982 2 Chile 8 Republica Dominicana 4 Chile
+1982 3 El Salvador 14 Cuba 4 El Salvador
+1982 3 Argentina 14 Chile 4 Argentina
+1982 4 El Salvador 19 Argentina 18 El Salvador
+1983 1 El Salvador 17 Colombia 8 El Salvador
+1983 1 Peru 8 Mexico 16 Mexico
+1983 1 Cuba 18 Venezuela 6 Cuba
+1983 1 Panama 10 Paraguay 8 Panama
+1983 1 Nicaragua 12 Uruguay 5 Nicaragua
+1983 1 Honduras 2 Argentina 7 Argentina
+1983 1 Chile 0 Ecuador 17 Ecuador
+1983 1 Guatemala 4 Costa Rica 11 Costa Rica
+1983 2 El Salvador 14 Mexico 1 El Salvador
+1983 2 Cuba 7 Panama 14 Panama
+1983 2 Nicaragua 14 Argentina 7 Nicaragua
+1983 2 Ecuador 11 Costa Rica 7 Ecuador
+1983 3 El Salvador 18 Panama 16 El Salvador
+1983 3 Nicaragua 17 Ecuador 10 Nicaragua
+1983 4 El Salvador 18 Nicaragua 1 El Salvador
+1984 1 Costa Rica 4 Bolivia 19 Bolivia
+1984 1 Paraguay 19 Brasil 0 Paraguay
+1984 1 Colombia 17 Venezuela 13 Colombia
+1984 1 Republica Dominicana 9 Argentina 2 Republica Dominicana
+1984 1 Mexico 18 Nicaragua 4 Mexico
+1984 1 Ecuador 18 Guatemala 14 Ecuador
+1984 1 El Salvador 12 Chile 11 El Salvador
+1984 1 Panama 20 Honduras 1 Panama
+1984 2 Bolivia 0 Paraguay 5 Paraguay
+1984 2 Colombia 5 Republica Dominicana 7 Republica Dominicana
+1984 2 Mexico 9 Ecuador 16 Ecuador
+1984 2 El Salvador 16 Panama 14 El Salvador
+1984 3 Paraguay 17 Republica Dominicana 18 Republica Dominicana
+1984 3 Ecuador 5 El Salvador 20 El Salvador
+1984 4 Republica Dominicana 12 El Salvador 10 Republica Dominicana
+1985 1 Venezuela 8 Uruguay 1 Venezuela
+1985 1 Brasil 0 Bolivia 14 Bolivia
+1985 1 El Salvador 6 Peru 0 El Salvador
+1985 1 Cuba 19 Colombia 18 Cuba
+1985 1 Panama 6 Nicaragua 17 Nicaragua
+1985 1 Paraguay 17 Ecuador 3 Paraguay
+1985 1 Argentina 11 Honduras 13 Honduras
+1985 1 Chile 19 Guatemala 18 Chile
+1985 2 Venezuela 3 Bolivia 11 Bolivia
+1985 2 El Salvador 13 Cuba 4 El Salvador
+1985 2 Nicaragua 7 Paraguay 8 Paraguay
+1985 2 Honduras 19 Chile 14 Honduras
+1985 3 Bolivia 11 El Salvador 1 Bolivia
+1985 3 Paraguay 9 Honduras 6 Paraguay
+1985 4 Bolivia 20 Paraguay 7 Bolivia
+1986 1 Argentina 6 Peru 7 Peru
+1986 1 Honduras 19 Uruguay 1 Honduras
+1986 1 Venezuela 10 Guatemala 13 Guatemala
+1986 1 Costa Rica 4 Mexico 0 Costa Rica
+1986 1 Cuba 18 El Salvador 16 Cuba
+1986 1 Bolivia 17 Panama 9 Bolivia
+1986 1 Brasil 18 Paraguay 8 Brasil
+1986 1 Chile 6 Republica Dominicana 3 Chile
+1986 2 Peru 15 Honduras 19 Honduras
+1986 2 Guatemala 11 Costa Rica 8 Guatemala
+1986 2 Cuba 19 Bolivia 2 Cuba
+1986 2 Brasil 5 Chile 1 Brasil
+1986 3 Honduras 9 Guatemala 6 Honduras
+1986 3 Cuba 19 Brasil 15 Cuba
+1986 4 Honduras 9 Cuba 2 Honduras
+1987 1 Uruguay 15 Nicaragua 19 Nicaragua
+1987 1 Venezuela 17 Paraguay 3 Venezuela
+1987 1 El Salvador 20 Ecuador 17 El Salvador
+1987 1 Argentina 14 Bolivia 13 Argentina
+1987 1 Chile 6 Peru 18 Peru
+1987 1 Guatemala 17 Panama 20 Panama
+1987 1 Costa Rica 0 Republica Dominicana 12 Republica Dominicana
+1987 1 Honduras 17 Mexico 19 Mexico
+1987 2 Nicaragua 16 Venezuela 19 Venezuela
+1987 2 El Salvador 16 Argentina 15 El Salvador
+1987 2 Peru 9 Panama 7 Peru
+1987 2 Republica Dominicana 20 Mexico 3 Republica Dominicana
+1987 3 Venezuela 20 El Salvador 2 Venezuela
+1987 3 Peru 5 Republica Dominicana 0 Peru
+1987 4 Venezuela 10 Peru 8 Venezuela
+1988 1 Panama 1 Uruguay 9 Uruguay
+1988 1 Nicaragua 4 Bolivia 14 Bolivia
+1988 1 Honduras 11 Paraguay 13 Paraguay
+1988 1 Argentina 3 Chile 6 Chile
+1988 1 Republica Dominicana 9 Brasil 0 Republica Dominicana
+1988 1 Costa Rica 8 Peru 20 Peru
+1988 1 Guatemala 4 El Salvador 1 Guatemala
+1988 1 Mexico 9 Venezuela 2 Mexico
+1988 2 Uruguay 17 Bolivia 13 Uruguay
+1988 2 Paraguay 9 Chile 19 Chile
+1988 2 Republica Dominicana 17 Peru 1 Republica Dominicana
+1988 2 Guatemala 3 Mexico 19 Mexico
+1988 3 Uruguay 3 Chile 20 Chile
+1988 3 Republica Dominicana 8 Mexico 4 Republica Dominicana
+1988 4 Chile 13 Republica Dominicana 10 Chile
+1989 1 Guatemala 6 Mexico 15 Mexico
+1989 1 Peru 2 Uruguay 7 Uruguay
+1989 1 Argentina 12 Bolivia 1 Argentina
+1989 1 Chile 19 Nicaragua 13 Chile
+1989 1 Costa Rica 1 Republica Dominicana 8 Republica Dominicana
+1989 1 Brasil 6 Panama 7 Panama
+1989 1 Honduras 17 Paraguay 10 Honduras
+1989 1 Cuba 2 El Salvador 12 El Salvador
+1989 2 Mexico 5 Uruguay 12 Uruguay
+1989 2 Argentina 6 Chile 9 Chile
+1989 2 Republica Dominicana 18 Panama 20 Panama
+1989 2 Honduras 15 El Salvador 19 El Salvador
+1989 3 Uruguay 8 Chile 14 Chile
+1989 3 Panama 11 El Salvador 3 Panama
+1989 4 Chile 20 Panama 10 Chile
+1990 1 Argentina 18 Chile 17 Argentina
+1990 1 Peru 11 Paraguay 13 Paraguay
+1990 1 Nicaragua 0 Costa Rica 8 Costa Rica
+1990 1 Guatemala 13 Mexico 14 Mexico
+1990 1 Republica Dominicana 15 Uruguay 5 Republica Dominicana
+1990 1 Cuba 14 Bolivia 16 Bolivia
+1990 1 Panama 17 Honduras 8 Panama
+1990 1 Colombia 20 Venezuela 2 Colombia
+1990 2 Argentina 18 Paraguay 12 Argentina
+1990 2 Costa Rica 14 Mexico 7 Costa Rica
+1990 2 Republica Dominicana 2 Bolivia 8 Bolivia
+1990 2 Panama 13 Colombia 14 Colombia
+1990 3 Argentina 10 Costa Rica 9 Argentina
+1990 3 Bolivia 9 Colombia 6 Bolivia
+1990 4 Argentina 1 Bolivia 8 Bolivia
+1991 1 Honduras 11 Ecuador 9 Honduras
+1991 1 Peru 6 Guatemala 2 Peru
+1991 1 Mexico 19 Venezuela 2 Mexico
+1991 1 Cuba 9 Colombia 7 Cuba
+1991 1 Bolivia 19 Chile 15 Bolivia
+1991 1 Republica Dominicana 4 Paraguay 6 Paraguay
+1991 1 Panama 17 El Salvador 11 Panama
+1991 1 Brasil 9 Uruguay 13 Uruguay
+1991 2 Honduras 0 Peru 8 Peru
+1991 2 Mexico 9 Cuba 15 Cuba
+1991 2 Bolivia 4 Paraguay 15 Paraguay
+1991 2 Panama 18 Uruguay 11 Panama
+1991 3 Peru 0 Cuba 16 Cuba
+1991 3 Paraguay 9 Panama 12 Panama
+1991 4 Cuba 14 Panama 15 Panama
+1992 1 Colombia 11 Argentina 7 Colombia
+1992 1 Uruguay 3 Nicaragua 14 Nicaragua
+1992 1 Cuba 9 Panama 7 Cuba
+1992 1 Costa Rica 11 Brasil 16 Brasil
+1992 1 Mexico 11 Guatemala 3 Mexico
+1992 1 Ecuador 5 Paraguay 15 Paraguay
+1992 1 Peru 18 El Salvador 17 Peru
+1992 1 Venezuela 9 Chile 11 Chile
+1992 2 Colombia 4 Nicaragua 18 Nicaragua
+1992 2 Cuba 20 Brasil 1 Cuba
+1992 2 Mexico 5 Paraguay 4 Mexico
+1992 2 Peru 19 Chile 4 Peru
+1992 3 Nicaragua 1 Cuba 17 Cuba
+1992 3 Mexico 11 Peru 12 Peru
+1992 4 Cuba 2 Peru 3 Peru
+1993 1 Venezuela 10 Republica Dominicana 11 Republica Dominicana
+1993 1 Cuba 12 Peru 4 Cuba
+1993 1 Uruguay 11 Bolivia 19 Bolivia
+1993 1 Guatemala 11 Costa Rica 18 Costa Rica
+1993 1 Honduras 20 Colombia 18 Honduras
+1993 1 Panama 0 Brasil 8 Brasil
+1993 1 Nicaragua 1 Chile 7 Chile
+1993 1 Argentina 20 Paraguay 1 Argentina
+1993 2 Republica Dominicana 6 Cuba 1 Republica Dominicana
+1993 2 Bolivia 14 Costa Rica 17 Costa Rica
+1993 2 Honduras 7 Brasil 4 Honduras
+1993 2 Chile 16 Argentina 4 Chile
+1993 3 Republica Dominicana 7 Costa Rica 8 Costa Rica
+1993 3 Honduras 17 Chile 7 Honduras
+1993 4 Costa Rica 9 Honduras 15 Honduras
+1994 1 El Salvador 20 Mexico 9 El Salvador
+1994 1 Honduras 3 Cuba 16 Cuba
+1994 1 Chile 20 Panama 0 Chile
+1994 1 Argentina 14 Peru 4 Argentina
+1994 1 Uruguay 19 Nicaragua 15 Uruguay
+1994 1 Costa Rica 4 Guatemala 10 Guatemala
+1994 1 Colombia 10 Brasil 18 Brasil
+1994 1 Venezuela 17 Ecuador 5 Venezuela
+1994 2 El Salvador 5 Cuba 10 Cuba
+1994 2 Chile 5 Argentina 8 Argentina
+1994 2 Uruguay 11 Guatemala 9 Uruguay
+1994 2 Brasil 19 Venezuela 14 Brasil
+1994 3 Cuba 11 Argentina 2 Cuba
+1994 3 Uruguay 4 Brasil 8 Brasil
+1994 4 Cuba 4 Brasil 20 Brasil
+1995 1 Brasil 19 Cuba 14 Brasil
+1995 1 Argentina 11 Paraguay 10 Argentina
+1995 1 Republica Dominicana 20 Bolivia 13 Republica Dominicana
+1995 1 El Salvador 11 Chile 1 El Salvador
+1995 1 Guatemala 8 Venezuela 19 Venezuela
+1995 1 Costa Rica 6 Panama 0 Costa Rica
+1995 1 Mexico 13 Honduras 0 Mexico
+1995 1 Nicaragua 1 Uruguay 20 Uruguay
+1995 2 Brasil 18 Argentina 3 Brasil
+1995 2 Republica Dominicana 12 El Salvador 5 Republica Dominicana
+1995 2 Venezuela 16 Costa Rica 0 Venezuela
+1995 2 Mexico 3 Uruguay 8 Uruguay
+1995 3 Brasil 18 Republica Dominicana 0 Brasil
+1995 3 Venezuela 4 Uruguay 19 Uruguay
+1995 4 Brasil 7 Uruguay 5 Brasil
+1996 1 Bolivia 16 Costa Rica 8 Bolivia
+1996 1 Honduras 20 Nicaragua 7 Honduras
+1996 1 Argentina 20 Peru 13 Argentina
+1996 1 Cuba 16 Republica Dominicana 4 Cuba
+1996 1 Mexico 16 Paraguay 20 Paraguay
+1996 1 Chile 9 Uruguay 7 Chile
+1996 1 Guatemala 20 Ecuador 8 Guatemala
+1996 1 Colombia 16 Brasil 10 Colombia
+1996 2 Bolivia 14 Honduras 20 Honduras
+1996 2 Argentina 5 Cuba 10 Cuba
+1996 2 Paraguay 2 Chile 13 Chile
+1996 2 Guatemala 2 Colombia 6 Colombia
+1996 3 Honduras 11 Cuba 9 Honduras
+1996 3 Chile 1 Colombia 15 Colombia
+1996 4 Honduras 10 Colombia 7 Honduras
+1997 1 Colombia 15 El Salvador 3 Colombia
+1997 1 Peru 1 Argentina 6 Argentina
+1997 1 Venezuela 4 Republica Dominicana 19 Republica Dominicana
+1997 1 Ecuador 5 Chile 10 Chile
+1997 1 Mexico 4 Bolivia 3 Mexico
+1997 1 Brasil 1 Panama 3 Panama
+1997 1 Cuba 2 Honduras 13 Honduras
+1997 1 Paraguay 7 Costa Rica 12 Costa Rica
+1997 2 Colombia 0 Argentina 14 Argentina
+1997 2 Republica Dominicana 7 Chile 8 Chile
+1997 2 Mexico 18 Panama 2 Mexico
+1997 2 Honduras 7 Costa Rica 20 Costa Rica
+1997 3 Argentina 10 Chile 0 Argentina
+1997 3 Mexico 9 Costa Rica 16 Costa Rica
+1997 4 Argentina 9 Costa Rica 16 Costa Rica
+1998 1 Chile 14 Venezuela 15 Venezuela
+1998 1 Argentina 14 Ecuador 6 Argentina
+1998 1 Panama 17 Honduras 10 Panama
+1998 1 Cuba 0 Brasil 6 Brasil
+1998 1 Mexico 5 Paraguay 19 Paraguay
+1998 1 Bolivia 13 Costa Rica 16 Costa Rica
+1998 1 Guatemala 13 Uruguay 4 Guatemala
+1998 1 Nicaragua 2 Colombia 20 Colombia
+1998 2 Venezuela 17 Argentina 12 Venezuela
+1998 2 Panama 4 Brasil 17 Brasil
+1998 2 Paraguay 1 Costa Rica 11 Costa Rica
+1998 2 Guatemala 13 Colombia 0 Guatemala
+1998 3 Venezuela 10 Brasil 11 Brasil
+1998 3 Costa Rica 13 Guatemala 6 Costa Rica
+1998 4 Brasil 11 Costa Rica 9 Brasil
+1999 1 Guatemala 4 El Salvador 5 El Salvador
+1999 1 Cuba 8 Peru 0 Cuba
+1999 1 Panama 4 Bolivia 7 Bolivia
+1999 1 Argentina 18 Republica Dominicana 16 Argentina
+1999 1 Ecuador 10 Colombia 15 Colombia
+1999 1 Nicaragua 14 Costa Rica 0 Nicaragua
+1999 1 Chile 14 Uruguay 7 Chile
+1999 1 Brasil 7 Venezuela 4 Brasil
+1999 2 El Salvador 5 Cuba 4 El Salvador
+1999 2 Bolivia 0 Argentina 15 Argentina
+1999 2 Colombia 8 Nicaragua 10 Nicaragua
+1999 2 Chile 5 Brasil 10 Brasil
+1999 3 El Salvador 19 Argentina 17 El Salvador
+1999 3 Nicaragua 5 Brasil 18 Brasil
+1999 4 El Salvador 7 Brasil 1 El Salvador
+2000 1 Argentina 0 Bolivia 6 Bolivia
+2000 1 Ecuador 10 Cuba 3 Ecuador
+2000 1 Guatemala 15 Republica Dominicana 13 Guatemala
+2000 1 Panama 0 Venezuela 11 Venezuela
+2000 1 Uruguay 15 Chile 19 Chile
+2000 1 Peru 6 Costa Rica 12 Costa Rica
+2000 1 Colombia 5 Brasil 4 Colombia
+2000 1 Honduras 11 El Salvador 7 Honduras
+2000 2 Bolivia 19 Ecuador 1 Bolivia
+2000 2 Guatemala 7 Venezuela 20 Venezuela
+2000 2 Chile 11 Costa Rica 8 Chile
+2000 2 Colombia 7 Honduras 0 Colombia
+2000 3 Bolivia 14 Venezuela 16 Venezuela
+2000 3 Chile 4 Colombia 13 Colombia
+2000 4 Venezuela 6 Colombia 5 Venezuela
+2001 1 Costa Rica 15 Nicaragua 17 Nicaragua
+2001 1 El Salvador 18 Panama 17 El Salvador
+2001 1 Colombia 1 Brasil 18 Brasil
+2001 1 Peru 2 Paraguay 10 Paraguay
+2001 1 Uruguay 6 Mexico 11 Mexico
+2001 1 Cuba 14 Bolivia 2 Cuba
+2001 1 Ecuador 10 Chile 18 Chile
+2001 1 Guatemala 6 Venezuela 1 Guatemala
+2001 2 Nicaragua 16 El Salvador 4 Nicaragua
+2001 2 Brasil 17 Paraguay 6 Brasil
+2001 2 Mexico 15 Cuba 11 Mexico
+2001 2 Chile 8 Guatemala 9 Guatemala
+2001 3 Nicaragua 17 Brasil 0 Nicaragua
+2001 3 Mexico 10 Guatemala 16 Guatemala
+2001 4 Nicaragua 11 Guatemala 16 Guatemala
+2002 1 Guatemala 17 Panama 1 Guatemala
+2002 1 Uruguay 3 El Salvador 12 El Salvador
+2002 1 Argentina 14 Bolivia 12 Argentina
+2002 1 Republica Dominicana 8 Brasil 0 Republica Dominicana
+2002 1 Venezuela 8 Ecuador 13 Ecuador
+2002 1 Paraguay 5 Honduras 8 Honduras
+2002 1 Cuba 5 Chile 13 Chile
+2002 1 Costa Rica 8 Colombia 11 Colombia
+2002 2 Guatemala 13 El Salvador 2 Guatemala
+2002 2 Argentina 14 Republica Dominicana 17 Republica Dominicana
+2002 2 Ecuador 14 Honduras 19 Honduras
+2002 2 Chile 19 Colombia 13 Chile
+2002 3 Guatemala 4 Republica Dominicana 8 Republica Dominicana
+2002 3 Honduras 11 Chile 17 Chile
+2002 4 Republica Dominicana 8 Chile 5 Republica Dominicana
+2003 1 Republica Dominicana 11 Cuba 3 Republica Dominicana
+2003 1 Peru 7 Guatemala 15 Guatemala
+2003 1 El Salvador 2 Panama 0 El Salvador
+2003 1 Nicaragua 0 Ecuador 6 Ecuador
+2003 1 Costa Rica 12 Mexico 7 Costa Rica
+2003 1 Bolivia 16 Colombia 3 Bolivia
+2003 1 Chile 3 Uruguay 1 Chile
+2003 1 Venezuela 3 Argentina 10 Argentina
+2003 2 Republica Dominicana 1 Guatemala 17 Guatemala
+2003 2 El Salvador 17 Ecuador 12 El Salvador
+2003 2 Costa Rica 6 Bolivia 3 Costa Rica
+2003 2 Chile 14 Argentina 0 Chile
+2003 3 Guatemala 20 El Salvador 18 Guatemala
+2003 3 Costa Rica 1 Chile 2 Chile
+2003 4 Guatemala 12 Chile 14 Chile
+2004 1 Uruguay 15 Costa Rica 16 Costa Rica
+2004 1 Honduras 4 Chile 18 Chile
+2004 1 Paraguay 14 Mexico 12 Paraguay
+2004 1 Panama 17 Brasil 5 Panama
+2004 1 Cuba 14 El Salvador 3 Cuba
+2004 1 Venezuela 20 Nicaragua 6 Venezuela
+2004 1 Guatemala 20 Republica Dominicana 19 Guatemala
+2004 1 Colombia 0 Ecuador 2 Ecuador
+2004 2 Costa Rica 11 Chile 18 Chile
+2004 2 Paraguay 20 Panama 14 Paraguay
+2004 2 Cuba 10 Venezuela 13 Venezuela
+2004 2 Guatemala 8 Ecuador 11 Ecuador
+2004 3 Chile 20 Paraguay 9 Chile
+2004 3 Venezuela 12 Ecuador 20 Ecuador
+2004 4 Chile 11 Ecuador 16 Ecuador
+2005 1 Costa Rica 10 Paraguay 5 Costa Rica
+2005 1 Cuba 12 Guatemala 5 Cuba
+2005 1 Argentina 3 Honduras 19 Honduras
+2005 1 Panama 3 El Salvador 11 El Salvador
+2005 1 Republica Dominicana 13 Uruguay 14 Uruguay
+2005 1 Mexico 5 Colombia 18 Colombia
+2005 1 Brasil 19 Ecuador 10 Brasil
+2005 1 Chile 1 Bolivia 5 Bolivia
+2005 2 Costa Rica 2 Cuba 4 Cuba
+2005 2 Honduras 17 El Salvador 8 Honduras
+2005 2 Uruguay 12 Colombia 8 Uruguay
+2005 2 Brasil 9 Bolivia 4 Brasil
+2005 3 Cuba 19 Honduras 0 Cuba
+2005 3 Uruguay 8 Brasil 18 Brasil
+2005 4 Cuba 1 Brasil 0 Cuba
+2006 1 Bolivia 4 Panama 9 Panama
+2006 1 Cuba 12 Venezuela 3 Cuba
+2006 1 Costa Rica 16 Paraguay 0 Costa Rica
+2006 1 Uruguay 5 Republica Dominicana 6 Republica Dominicana
+2006 1 Colombia 13 Honduras 20 Honduras
+2006 1 Peru 1 El Salvador 17 El Salvador
+2006 1 Nicaragua 8 Chile 7 Nicaragua
+2006 1 Brasil 18 Argentina 1 Brasil
+2006 2 Panama 4 Cuba 6 Cuba
+2006 2 Costa Rica 10 Republica Dominicana 20 Republica Dominicana
+2006 2 Honduras 0 El Salvador 19 El Salvador
+2006 2 Nicaragua 13 Brasil 3 Nicaragua
+2006 3 Cuba 1 Republica Dominicana 7 Republica Dominicana
+2006 3 El Salvador 18 Nicaragua 7 El Salvador
+2006 4 Republica Dominicana 15 El Salvador 1 Republica Dominicana
+2007 1 Bolivia 19 Brasil 8 Bolivia
+2007 1 Argentina 7 Peru 15 Peru
+2007 1 Chile 1 Mexico 7 Mexico
+2007 1 Republica Dominicana 4 Venezuela 14 Venezuela
+2007 1 Ecuador 6 El Salvador 16 El Salvador
+2007 1 Nicaragua 18 Paraguay 20 Paraguay
+2007 1 Colombia 15 Cuba 2 Colombia
+2007 1 Uruguay 19 Costa Rica 1 Uruguay
+2007 2 Bolivia 0 Peru 10 Peru
+2007 2 Mexico 1 Venezuela 16 Venezuela
+2007 2 El Salvador 15 Paraguay 13 El Salvador
+2007 2 Colombia 4 Uruguay 13 Uruguay
+2007 3 Peru 11 Venezuela 17 Venezuela
+2007 3 El Salvador 19 Uruguay 0 El Salvador
+2007 4 Venezuela 17 El Salvador 15 Venezuela
+2008 1 Republica Dominicana 7 Honduras 19 Honduras
+2008 1 Peru 18 Brasil 15 Peru
+2008 1 Argentina 16 Ecuador 6 Argentina
+2008 1 Nicaragua 10 Costa Rica 19 Costa Rica
+2008 1 Uruguay 13 Colombia 16 Colombia
+2008 1 Cuba 19 El Salvador 1 Cuba
+2008 1 Venezuela 17 Guatemala 0 Venezuela
+2008 1 Panama 9 Mexico 15 Mexico
+2008 2 Honduras 17 Peru 11 Honduras
+2008 2 Argentina 12 Costa Rica 6 Argentina
+2008 2 Colombia 14 Cuba 2 Colombia
+2008 2 Venezuela 2 Mexico 5 Mexico
+2008 3 Honduras 14 Argentina 3 Honduras
+2008 3 Colombia 14 Mexico 4 Colombia
+2008 4 Honduras 7 Colombia 6 Honduras
+2009 1 Uruguay 5 Honduras 7 Honduras
+2009 1 Paraguay 13 Peru 14 Peru
+2009 1 Venezuela 12 El Salvador 15 El Salvador
+2009 1 Panama 7 Mexico 10 Mexico
+2009 1 Colombia 4 Bolivia 10 Bolivia
+2009 1 Nicaragua 5 Costa Rica 9 Costa Rica
+2009 1 Argentina 12 Brasil 2 Argentina
+2009 1 Chile 0 Ecuador 15 Ecuador
+2009 2 Honduras 8 Peru 15 Peru
+2009 2 El Salvador 11 Mexico 9 El Salvador
+2009 2 Bolivia 16 Costa Rica 18 Costa Rica
+2009 2 Argentina 12 Ecuador 9 Argentina
+2009 3 Peru 10 El Salvador 6 Peru
+2009 3 Costa Rica 12 Argentina 10 Costa Rica
+2009 4 Peru 16 Costa Rica 7 Peru
+2010 1 Venezuela 20 Republica Dominicana 9 Venezuela
+2010 1 Brasil 2 Uruguay 7 Uruguay
+2010 1 Costa Rica 6 Colombia 10 Colombia
+2010 1 Honduras 0 Guatemala 5 Guatemala
+2010 1 Paraguay 11 Cuba 19 Cuba
+2010 1 Mexico 11 El Salvador 9 Mexico
+2010 1 Peru 14 Ecuador 18 Ecuador
+2010 1 Chile 18 Bolivia 10 Chile
+2010 2 Venezuela 8 Uruguay 14 Uruguay
+2010 2 Colombia 0 Guatemala 10 Guatemala
+2010 2 Cuba 15 Mexico 7 Cuba
+2010 2 Ecuador 0 Chile 11 Chile
+2010 3 Uruguay 9 Guatemala 8 Uruguay
+2010 3 Cuba 7 Chile 11 Chile
+2010 4 Uruguay 16 Chile 19 Chile
+2011 1 Nicaragua 18 Republica Dominicana 15 Nicaragua
+2011 1 Brasil 13 Peru 16 Peru
+2011 1 Argentina 20 Uruguay 16 Argentina
+2011 1 Guatemala 5 Colombia 2 Guatemala
+2011 1 Chile 15 Honduras 18 Honduras
+2011 1 Ecuador 14 Panama 7 Ecuador
+2011 1 Bolivia 16 El Salvador 8 Bolivia
+2011 1 Costa Rica 12 Mexico 17 Mexico
+2011 2 Nicaragua 9 Peru 18 Peru
+2011 2 Argentina 1 Guatemala 8 Guatemala
+2011 2 Honduras 11 Ecuador 14 Ecuador
+2011 2 Bolivia 19 Mexico 2 Bolivia
+2011 3 Peru 4 Guatemala 0 Peru
+2011 3 Ecuador 0 Bolivia 7 Bolivia
+2011 4 Peru 7 Bolivia 9 Bolivia
+2012 1 Mexico 0 Argentina 2 Argentina
+2012 1 Brasil 15 Costa Rica 20 Costa Rica
+2012 1 El Salvador 15 Peru 11 El Salvador
+2012 1 Bolivia 0 Chile 10 Chile
+2012 1 Republica Dominicana 6 Honduras 20 Honduras
+2012 1 Venezuela 18 Paraguay 2 Venezuela
+2012 1 Guatemala 15 Panama 16 Panama
+2012 1 Colombia 0 Ecuador 2 Ecuador
+2012 2 Argentina 15 Costa Rica 0 Argentina
+2012 2 El Salvador 17 Chile 16 El Salvador
+2012 2 Honduras 12 Venezuela 8 Honduras
+2012 2 Panama 16 Ecuador 4 Panama
+2012 3 Argentina 20 El Salvador 14 Argentina
+2012 3 Honduras 2 Panama 16 Panama
+2012 4 Argentina 11 Panama 17 Panama
+2013 1 Costa Rica 13 Uruguay 20 Uruguay
+2013 1 Bolivia 9 Chile 1 Bolivia
+2013 1 Argentina 11 Paraguay 2 Argentina
+2013 1 El Salvador 19 Cuba 4 El Salvador
+2013 1 Ecuador 2 Republica Dominicana 18 Republica Dominicana
+2013 1 Honduras 11 Peru 2 Honduras
+2013 1 Mexico 9 Panama 0 Mexico
+2013 1 Guatemala 5 Venezuela 13 Venezuela
+2013 2 Uruguay 18 Bolivia 3 Uruguay
+2013 2 Argentina 8 El Salvador 20 El Salvador
+2013 2 Republica Dominicana 5 Honduras 8 Honduras
+2013 2 Mexico 19 Venezuela 4 Mexico
+2013 3 Uruguay 6 El Salvador 2 Uruguay
+2013 3 Honduras 8 Mexico 17 Mexico
+2013 4 Uruguay 10 Mexico 4 Uruguay
+2014 1 Guatemala 8 Honduras 3 Guatemala
+2014 1 Panama 5 Bolivia 16 Bolivia
+2014 1 Brasil 9 Peru 1 Brasil
+2014 1 Colombia 0 Republica Dominicana 9 Republica Dominicana
+2014 1 Ecuador 20 El Salvador 2 Ecuador
+2014 1 Cuba 5 Venezuela 20 Venezuela
+2014 1 Paraguay 6 Mexico 12 Mexico
+2014 1 Nicaragua 10 Costa Rica 18 Costa Rica
+2014 2 Guatemala 18 Bolivia 1 Guatemala
+2014 2 Brasil 5 Republica Dominicana 1 Brasil
+2014 2 Ecuador 4 Venezuela 10 Venezuela
+2014 2 Mexico 0 Costa Rica 10 Costa Rica
+2014 3 Guatemala 0 Brasil 15 Brasil
+2014 3 Venezuela 17 Costa Rica 13 Venezuela
+2014 4 Brasil 8 Venezuela 13 Venezuela
+2015 1 Guatemala 4 Chile 15 Chile
+2015 1 Nicaragua 20 Argentina 14 Nicaragua
+2015 1 Bolivia 8 Panama 18 Panama
+2015 1 Republica Dominicana 18 Brasil 16 Republica Dominicana
+2015 1 Ecuador 7 Mexico 18 Mexico
+2015 1 El Salvador 20 Costa Rica 5 El Salvador
+2015 1 Colombia 1 Honduras 13 Honduras
+2015 1 Cuba 12 Peru 11 Cuba
+2015 2 Chile 7 Nicaragua 6 Chile
+2015 2 Panama 18 Republica Dominicana 9 Panama
+2015 2 Mexico 6 El Salvador 9 El Salvador
+2015 2 Honduras 14 Cuba 13 Honduras
+2015 3 Chile 16 Panama 17 Panama
+2015 3 El Salvador 14 Honduras 7 El Salvador
+2015 4 Panama 18 El Salvador 9 Panama
+2016 1 Uruguay 1 Panama 9 Panama
+2016 1 Bolivia 7 Colombia 9 Colombia
+2016 1 Chile 11 Nicaragua 13 Nicaragua
+2016 1 Cuba 1 Paraguay 15 Paraguay
+2016 1 Costa Rica 0 Mexico 19 Mexico
+2016 1 El Salvador 7 Argentina 11 Argentina
+2016 1 Peru 20 Honduras 3 Peru
+2016 1 Brasil 12 Guatemala 15 Guatemala
+2016 2 Panama 0 Colombia 4 Colombia
+2016 2 Nicaragua 18 Paraguay 3 Nicaragua
+2016 2 Mexico 12 Argentina 7 Mexico
+2016 2 Peru 12 Guatemala 13 Guatemala
+2016 3 Colombia 7 Nicaragua 19 Nicaragua
+2016 3 Mexico 17 Guatemala 13 Mexico
+2016 4 Nicaragua 10 Mexico 6 Nicaragua
+2017 1 Ecuador 0 Cuba 16 Cuba
+2017 1 Peru 18 Nicaragua 0 Peru
+2017 1 Paraguay 5 Republica Dominicana 7 Republica Dominicana
+2017 1 Panama 19 Brasil 15 Panama
+2017 1 Honduras 13 Mexico 11 Honduras
+2017 1 Argentina 11 Chile 17 Chile
+2017 1 Venezuela 12 Bolivia 11 Venezuela
+2017 1 Costa Rica 13 Colombia 17 Colombia
+2017 2 Cuba 13 Peru 20 Peru
+2017 2 Republica Dominicana 2 Panama 6 Panama
+2017 2 Honduras 0 Chile 14 Chile
+2017 2 Venezuela 8 Colombia 14 Colombia
+2017 3 Peru 15 Panama 6 Peru
+2017 3 Chile 2 Colombia 8 Colombia
+2017 4 Peru 8 Colombia 11 Colombia
+2018 1 Mexico 16 Bolivia 13 Mexico
+2018 1 Cuba 19 Argentina 13 Cuba
+2018 1 Brasil 3 Venezuela 1 Brasil
+2018 1 Republica Dominicana 2 Ecuador 7 Ecuador
+2018 1 Panama 6 Costa Rica 20 Costa Rica
+2018 1 Guatemala 8 Chile 4 Guatemala
+2018 1 Colombia 9 Nicaragua 14 Nicaragua
+2018 1 Honduras 9 Peru 4 Honduras
+2018 2 Mexico 16 Cuba 2 Mexico
+2018 2 Brasil 5 Ecuador 15 Ecuador
+2018 2 Costa Rica 13 Guatemala 0 Costa Rica
+2018 2 Nicaragua 3 Honduras 0 Nicaragua
+2018 3 Mexico 6 Ecuador 8 Ecuador
+2018 3 Costa Rica 4 Nicaragua 11 Nicaragua
+2018 4 Ecuador 10 Nicaragua 0 Ecuador
+2019 1 Nicaragua 7 Cuba 3 Nicaragua
+2019 1 Argentina 12 Republica Dominicana 14 Republica Dominicana
+2019 1 Costa Rica 0 El Salvador 9 El Salvador
+2019 1 Peru 0 Honduras 6 Honduras
+2019 1 Venezuela 14 Ecuador 3 Venezuela
+2019 1 Paraguay 12 Bolivia 4 Paraguay
+2019 1 Brasil 4 Mexico 8 Mexico
+2019 1 Guatemala 15 Colombia 6 Guatemala
+2019 2 Nicaragua 1 Republica Dominicana 8 Republica Dominicana
+2019 2 El Salvador 8 Honduras 16 Honduras
+2019 2 Venezuela 13 Paraguay 4 Venezuela
+2019 2 Mexico 0 Guatemala 8 Guatemala
+2019 3 Republica Dominicana 0 Honduras 9 Honduras
+2019 3 Venezuela 4 Guatemala 11 Guatemala
+2019 4 Honduras 16 Guatemala 20 Guatemala
+2020 1 Panama 14 Mexico 9 Panama
+2020 1 El Salvador 17 Costa Rica 7 El Salvador
+2020 1 Guatemala 3 Nicaragua 19 Nicaragua
+2020 1 Bolivia 11 Ecuador 15 Ecuador
+2020 1 Uruguay 0 Colombia 3 Colombia
+2020 1 Chile 1 Republica Dominicana 10 Republica Dominicana
+2020 1 Honduras 4 Paraguay 12 Paraguay
+2020 1 Venezuela 2 Brasil 3 Brasil
+2020 2 Panama 5 El Salvador 14 El Salvador
+2020 2 Nicaragua 9 Ecuador 10 Ecuador
+2020 2 Colombia 13 Republica Dominicana 6 Colombia
+2020 2 Paraguay 0 Brasil 5 Brasil
+2020 3 El Salvador 4 Ecuador 15 Ecuador
+2020 3 Colombia 11 Brasil 18 Brasil
+2020 4 Ecuador 1 Brasil 19 Brasil
+2021 1 Ecuador 16 Argentina 4 Ecuador
+2021 1 Brasil 18 Nicaragua 2 Brasil
+2021 1 Honduras 20 Panama 9 Honduras
+2021 1 Uruguay 10 Republica Dominicana 3 Uruguay
+2021 1 Guatemala 16 Chile 4 Guatemala
+2021 1 Bolivia 13 El Salvador 0 Bolivia
+2021 1 Mexico 17 Colombia 19 Colombia
+2021 1 Paraguay 1 Venezuela 11 Venezuela
+2021 2 Ecuador 12 Brasil 5 Ecuador
+2021 2 Honduras 9 Uruguay 7 Honduras
+2021 2 Guatemala 18 Bolivia 16 Guatemala
+2021 2 Colombia 20 Venezuela 12 Colombia
+2021 3 Ecuador 14 Honduras 18 Honduras
+2021 3 Guatemala 12 Colombia 14 Colombia
+2021 4 Honduras 0 Colombia 17 Colombia
+2022 1 Nicaragua 7 Chile 16 Chile
+2022 1 Cuba 18 Argentina 3 Cuba
+2022 1 Venezuela 6 Panama 10 Panama
+2022 1 Republica Dominicana 15 Guatemala 2 Republica Dominicana
+2022 1 Colombia 17 El Salvador 13 Colombia
+2022 1 Uruguay 5 Brasil 10 Brasil
+2022 1 Honduras 4 Ecuador 13 Ecuador
+2022 1 Peru 10 Paraguay 17 Paraguay
+2022 2 Chile 20 Cuba 5 Chile
+2022 2 Panama 0 Republica Dominicana 16 Republica Dominicana
+2022 2 Colombia 2 Brasil 15 Brasil
+2022 2 Ecuador 3 Paraguay 4 Paraguay
+2022 3 Chile 20 Republica Dominicana 15 Chile
+2022 3 Brasil 16 Paraguay 7 Brasil
+2022 4 Chile 6 Brasil 10 Brasil
+2023 1 Venezuela 7 Honduras 20 Honduras
+2023 1 Cuba 14 El Salvador 8 Cuba
+2023 1 Republica Dominicana 1 Paraguay 18 Paraguay
+2023 1 Ecuador 2 Chile 11 Chile
+2023 1 Colombia 10 Uruguay 17 Uruguay
+2023 1 Mexico 0 Bolivia 17 Bolivia
+2023 1 Argentina 19 Nicaragua 15 Argentina
+2023 1 Brasil 13 Panama 5 Brasil
+2023 2 Honduras 13 Cuba 19 Cuba
+2023 2 Paraguay 17 Chile 6 Paraguay
+2023 2 Uruguay 8 Bolivia 11 Bolivia
+2023 2 Argentina 9 Brasil 2 Argentina
+2023 3 Cuba 0 Paraguay 6 Paraguay
+2023 3 Bolivia 2 Argentina 5 Argentina
+2023 4 Paraguay 7 Argentina 6 Paraguay
+2024 1 El Salvador 1 Honduras 4 Honduras
+2024 1 Brasil 0 Chile 7 Chile
+2024 1 Uruguay 5 Costa Rica 8 Costa Rica
+2024 1 Panama 16 Colombia 17 Colombia
+2024 1 Venezuela 9 Ecuador 5 Venezuela
+2024 1 Republica Dominicana 0 Peru 11 Peru
+2024 1 Cuba 12 Argentina 8 Cuba
+2024 1 Paraguay 9 Guatemala 0 Paraguay
+2024 2 Honduras 13 Chile 6 Honduras
+2024 2 Costa Rica 18 Colombia 20 Colombia
+2024 2 Venezuela 13 Peru 6 Venezuela
+2024 2 Cuba 17 Paraguay 7 Cuba
+2024 3 Honduras 6 Colombia 12 Colombia
+2024 3 Venezuela 17 Cuba 13 Venezuela
+2024 4 Colombia 16 Venezuela 8 Colombia
