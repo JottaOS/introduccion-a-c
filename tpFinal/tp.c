@@ -1,3 +1,9 @@
+/**
+ * Trabajo práctico final
+ *  1 - Juan Mendoza
+ *  2 - Alan Vera
+ *  3 - Franco Portillo
+ */
 #define GRNB "\e[42m"
 #define RED "\e[0;31m"
 #define BLK "\e[38;5;240m"
