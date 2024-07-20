@@ -1,70 +1,68 @@
 Goles anotados por cada país:
-Argentina: 1100 goles
-Bolivia: 1146 goles
-Brasil: 1197 goles
-Colombia: 1032 goles
-Costa Rica: 0 goles
-Cuba: 1073 goles
-Chile: 1403 goles
-Ecuador: 1070 goles
-El Salvador: 0 goles
-Guatemala: 1248 goles
-Honduras: 1647 goles
-Mexico: 1063 goles
-Nicaragua: 852 goles
-Panama: 1147 goles
-Paraguay: 1162 goles
-Peru: 860 goles
-Republica Dominicana: 0 goles
-Uruguay: 972 goles
-Venezuela: 1384 goles
+Argentina: 1301 goles
+Bolivia: 1070 goles
+Brasil: 1181 goles
+Colombia: 990 goles
+CostaRica: 998 goles
+Cuba: 1510 goles
+Chile: 1267 goles
+Ecuador: 1244 goles
+ElSalvador: 1095 goles
+Guatemala: 1214 goles
+Honduras: 1388 goles
+Mexico: 1182 goles
+Nicaragua: 1103 goles
+Panama: 1061 goles
+Paraguay: 1359 goles
+Peru: 1164 goles
+RepublicaDominicana: 1042 goles
+Uruguay: 1215 goles
+Venezuela: 1024 goles
 
-Victorias en partidos por cada país:
-Argentina: 53 victorias
-Bolivia: 56 victorias
-Brasil: 62 victorias
-Colombia: 50 victorias
-Costa Rica: 0 victorias
-Cuba: 49 victorias
-Chile: 67 victorias
-Ecuador: 47 victorias
-El Salvador: 0 victorias
-Guatemala: 59 victorias
-Honduras: 84 victorias
-Mexico: 49 victorias
-Nicaragua: 34 victorias
-Panama: 55 victorias
-Paraguay: 57 victorias
-Peru: 33 victorias
-Republica Dominicana: 0 victorias
-Uruguay: 43 victorias
-Venezuela: 64 victorias
+Victorias en partidos por cada selección:
+Argentina: 67 victorias
+Bolivia: 51 victorias
+Brasil: 61 victorias
+Colombia: 44 victorias
+CostaRica: 51 victorias
+Cuba: 75 victorias
+Chile: 68 victorias
+Ecuador: 60 victorias
+ElSalvador: 58 victorias
+Guatemala: 61 victorias
+Honduras: 71 victorias
+Mexico: 58 victorias
+Nicaragua: 55 victorias
+Panama: 51 victorias
+Paraguay: 69 victorias
+Peru: 59 victorias
+RepublicaDominicana: 52 victorias
+Uruguay: 65 victorias
+Venezuela: 49 victorias
 
 Torneos ganados por cada país:
-Argentina: 5 torneos
-Bolivia: 5 torneos
-Brasil: 3 torneos
+Argentina: 1 torneos
+Bolivia: 3 torneos
+Brasil: 1 torneos
 Colombia: 0 torneos
-Costa Rica: 0 torneos
-Cuba: 2 torneos
-Chile: 16 torneos
-Ecuador: 6 torneos
-El Salvador: 0 torneos
-Guatemala: 4 torneos
+CostaRica: 3 torneos
+Cuba: 7 torneos
+Chile: 4 torneos
+Ecuador: 8 torneos
+ElSalvador: 1 torneos
+Guatemala: 5 torneos
 Honduras: 9 torneos
-Mexico: 0 torneos
-Nicaragua: 2 torneos
-Panama: 2 torneos
-Paraguay: 2 torneos
-Peru: 0 torneos
-Republica Dominicana: 0 torneos
-Uruguay: 8 torneos
-Venezuela: 10 torneos
+Mexico: 5 torneos
+Nicaragua: 0 torneos
+Panama: 8 torneos
+Paraguay: 3 torneos
+Peru: 9 torneos
+RepublicaDominicana: 0 torneos
+Uruguay: 6 torneos
+Venezuela: 1 torneos
 
 Países con más torneos ganados:
-Chile: 16 torneos, 1403 goles
+Honduras: 9 torneos, 1388 goles
+Peru: 9 torneos, 1164 goles
 
-Países que nunca participaron:
-Costa Rica
-El Salvador
-Republica Dominicana
+Todos los países participaron en al menos un torneo.

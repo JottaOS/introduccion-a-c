@@ -1,12 +1,16 @@
+/**
+ * TEMA 1: Estadísticas de torneos de futbol
+ *
+ * Alumno: Juan Mendoza
+ *
+ * OBSERVACIÓN: Los nombres de los países con más de una palabra en su nombre (Ej: El Salvador, Republica Dominicana)
+ * se juntaron para que se lea correctamente el archivo de historial.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
-#define NUM_PAISES 19
-#define NUM_EQUIPOS 16
-#define ANIOS 75
-#define RONDAS 4
 
 typedef struct partido
 {
@@ -32,9 +36,9 @@ int main()
 void obtener_paises(char paises[19][21])
 {
     char *temp_paises[19] = {
-        "Argentina", "Bolivia", "Brasil", "Colombia", "Costa Rica", "Cuba",
-        "Chile", "Ecuador", "El Salvador", "Guatemala", "Honduras", "Mexico",
-        "Nicaragua", "Panama", "Paraguay", "Peru", "Republica Dominicana",
+        "Argentina", "Bolivia", "Brasil", "Colombia", "CostaRica", "Cuba",
+        "Chile", "Ecuador", "ElSalvador", "Guatemala", "Honduras", "Mexico",
+        "Nicaragua", "Panama", "Paraguay", "Peru", "RepublicaDominicana",
         "Uruguay", "Venezuela"};
     int i;
     for (i = 0; i < 19; i++)
@@ -65,17 +69,16 @@ void generar_estadisticas()
         exit(1);
     }
 
-    // Estructuras de datos para almacenar las estadísticas
-    int goles_paises[NUM_PAISES] = {0};
-    int victorias_paises[NUM_PAISES] = {0};
-    int torneos_ganados[NUM_PAISES] = {0};
-    int participacion_paises[NUM_PAISES] = {0};
+    int goles_paises[19] = {0};
+    int victorias_paises[19] = {0};
+    int torneos_ganados[19] = {0};
+    int participacion_paises[19] = {0};
 
-    char paises[NUM_PAISES][21];
+    char paises[19][21];
     obtener_paises(paises);
 
     char linea[128];
-    int anio_anterior = 1950 - 1;
+    int anio_anterior = 1949;
     int ganador_torneo = -1;
     int i;
 
@@ -86,9 +89,7 @@ void generar_estadisticas()
 
         sscanf(linea, "%d %d %s %d %s %d %s", &anio, &ronda, pais_1, &goles_1, pais_2, &goles_2, ganador);
 
-        printf("%d %d %s %d %s %d %s\n", anio, ronda, pais_1, goles_1, pais_2, goles_2, ganador);
-        // Actualizar goles
-        for (i = 0; i < NUM_PAISES; i++)
+        for (i = 0; i < 19; i++)
         {
             if (strcmp(pais_1, paises[i]) == 0)
             {
@@ -115,7 +116,6 @@ void generar_estadisticas()
             }
         }
 
-        // Al finalizar el torneo del año actual, actualizar torneos ganados
         if (anio_anterior != anio)
         {
             if (ganador_torneo != -1)
@@ -128,7 +128,6 @@ void generar_estadisticas()
 
     fclose(archivo_historial);
 
-    // Generar archivo de estadísticas
     FILE *archivo_resultados;
     archivo_resultados = fopen("Resultados_1950_2024.txt", "w");
 
@@ -139,33 +138,34 @@ void generar_estadisticas()
     }
 
     fprintf(archivo_resultados, "Goles anotados por cada país:\n");
-    for (i = 0; i < NUM_PAISES; i++)
+    for (i = 0; i < 19; i++)
     {
         fprintf(archivo_resultados, "%s: %d goles\n", paises[i], goles_paises[i]);
     }
 
-    fprintf(archivo_resultados, "\nVictorias en partidos por cada país:\n");
-    for (i = 0; i < NUM_PAISES; i++)
+    fprintf(archivo_resultados, "\nVictorias en partidos por cada selección:\n");
+    for (i = 0; i < 19; i++)
     {
         fprintf(archivo_resultados, "%s: %d victorias\n", paises[i], victorias_paises[i]);
     }
 
     fprintf(archivo_resultados, "\nTorneos ganados por cada país:\n");
-    for (i = 0; i < NUM_PAISES; i++)
+    for (i = 0; i < 19; i++)
     {
         fprintf(archivo_resultados, "%s: %d torneos\n", paises[i], torneos_ganados[i]);
     }
 
     fprintf(archivo_resultados, "\nPaíses con más torneos ganados:\n");
     int max_torneos = 0;
-    for (i = 0; i < NUM_PAISES; i++)
+    for (i = 0; i < 19; i++)
     {
         if (torneos_ganados[i] > max_torneos)
         {
             max_torneos = torneos_ganados[i];
         }
     }
-    for (i = 0; i < NUM_PAISES; i++)
+
+    for (i = 0; i < 19; i++)
     {
         if (torneos_ganados[i] == max_torneos)
         {
@@ -173,14 +173,20 @@ void generar_estadisticas()
         }
     }
 
-    fprintf(archivo_resultados, "\nPaíses que nunca participaron:\n");
-    for (i = 0; i < NUM_PAISES; i++)
+    int contador_participacion = 0;
+    for (i = 0; i < 19; i++)
     {
         if (participacion_paises[i] == 0)
         {
+            if (contador_participacion == 0)
+                fprintf(archivo_resultados, "\nPaíses que nunca participaron:\n");
+            contador_participacion++;
             fprintf(archivo_resultados, "%s\n", paises[i]);
         }
     }
+
+    if (contador_participacion == 0)
+        fprintf(archivo_resultados, "\nTodos los países participaron en al menos un torneo.\n");
 
     fclose(archivo_resultados);
 }
@@ -200,15 +206,15 @@ void generar_datos(int anio)
     char paises[19][21];
     obtener_paises(paises);
 
-    int seleccionados[NUM_EQUIPOS];
-    for (i = 0; i < NUM_EQUIPOS; i++)
+    int seleccionados[16];
+    for (i = 0; i < 16; i++)
     {
         int indice_pais;
         int repetido;
         do
         {
             repetido = 0;
-            indice_pais = rand() % NUM_PAISES;
+            indice_pais = rand() % 19;
             for (j = 0; j < i; j++)
             {
                 if (seleccionados[j] == indice_pais)
@@ -221,7 +227,7 @@ void generar_datos(int anio)
         seleccionados[i] = indice_pais;
     }
 
-    for (ronda = 0; ronda < RONDAS; ronda++)
+    for (ronda = 0; ronda < 4; ronda++)
     {
         int num_partidos = ronda == 0   ? 8
                            : ronda == 1 ? 4
